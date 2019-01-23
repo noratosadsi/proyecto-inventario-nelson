@@ -26,7 +26,7 @@ $usuario= new Usuarios();
 </head>
 	<body class="pagina_index">		
 		<h1 align="center">SISTEMA DE CONTROL DE INVENTARIO VARIEDADES YEYIS CASTILLO </h1>			    
-		<div align="center"><img src="logo sena.gif" height="150"></div>
+		<div align="center"><img src="public/images/logo sena.gif" height="150"></div>
 		<form method="post" action="">	
 			<div class='login'>
 				<h2>INICIO</h2>
