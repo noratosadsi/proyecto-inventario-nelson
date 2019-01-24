@@ -1,7 +1,8 @@
 
-document.write('<script src=//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js></script>');
+//document.write('<script src=//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js></script>');
 
 //show password
+
 $(document).ready(function(){
     $("#pw").focus(function(){
         this.type = "text";
@@ -41,3 +42,17 @@ $(function() {
 		});
 	}
 	});
+
+//mostrar contraseña al dar click en el checkbox
+
+ //Código jquery para detectar cuándo se activa el checkbox
+  $("#remember").change(function() {
+    //Si el checkbox está seleccionado
+    if($(this).is(":checked")) {
+		$("#pw").attr("type","text");
+    }
+    else {
+      //alert("El checkbox no está seleccionado");
+		$("#pw").attr("type","password");
+    }
+  });

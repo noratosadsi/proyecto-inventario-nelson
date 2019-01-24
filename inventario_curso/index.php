@@ -34,10 +34,10 @@ $usuario= new Usuarios();
 				<input id='pw' name='password' placeholder='CONTRASEÑA' type='password'/>
 				<div class='remember'>
 					<input checked='' id='remember' name='remember' type='checkbox'/>
-					<label for='remember'></label> RECORDARME
+					<label for='remember'></label> Moostrar Contraseña
 				</div>
 				<input type='submit' value='ENTRAR'/>
-				<a class='forgot' href='#'>OLVIDO SU CONTRASEÑA?</a>
+				
 			</div>    
 			<input type="hidden" name="grabar" value="si">
 		</form>
