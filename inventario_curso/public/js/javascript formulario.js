@@ -45,14 +45,26 @@ $(function() {
 
 //mostrar contraseña al dar click en el checkbox
 
- //Código jquery para detectar cuándo se activa el checkbox
-  $("#remember").change(function() {
-    //Si el checkbox está seleccionado
-    if($(this).is(":checked")) {
-		$("#pw").attr("type","text");
-    }
-    else {
-      //alert("El checkbox no está seleccionado");
-		$("#pw").attr("type","password");
-    }
-  });
+//////////////////////////////////////////////////////////////////////
+
+$(document).on('ready', function() {
+			$('#show-hide-passwd').on('click', function(e) {
+				e.preventDefault();
+				var current = $(this).attr('action');
+				if (current == 'hide') {
+					$(this).prev().attr('type','text');
+					$(this).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close').attr('action','show');
+				}
+				if (current == 'show') {
+					$(this).prev().attr('type','password');
+					$(this).removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open').attr('action','hide');
+				}
+			})
+		})
+
+
+
+
+
+
+

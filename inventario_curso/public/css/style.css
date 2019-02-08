@@ -1,4 +1,11 @@
-	
+.input-group {
+			width: 30%;
+			margin: 0 auto;
+			margin-top: 50px;
+		}
+		span {
+			cursor: pointer;
+		}	
 
 /*index*/
 

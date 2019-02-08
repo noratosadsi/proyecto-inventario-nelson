@@ -1,29 +1,55 @@
 
 		
 		
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-		
-<!-- left menu starts -->
-			
+<link href="public/css/estilos css.css" rel="stylesheet" >
+<script src="public/js/funcionalidad javascript.js"></script>
+
+<nav class="navbar navbar-inverse sidebar" role="navigation">
+    <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Brand</a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="<?php echo Conectar::ruta();?>home.php">INICIO<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+				<li ><a href="<?php echo Conectar::ruta();?>clientes.php">CLIENTES<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li ><a href="<?php echo Conectar::ruta();?>proveedores.php">PROVEEDORES<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li class="">
+					<a href="<?php echo Conectar::ruta();?>entradas.php" class="" >ENTRADAS <span class=""></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-shopping-cart"></span></a>
+				<!--	data-toggle="dropdown" dropdowndropdown-toggle<ul class="dropdown-menu forAnimate" role="menu">
+						<li><a href="#">Action</a></li>
+						<li><a href="#">Another action</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+						<li class="divider"></li>
+						<li><a href="#">One more separated link</a></li>
+					</ul>-->
+				</li>
+				<li class=""><a href="<?php echo Conectar::ruta();?>almacen.php">ALMACEN<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a></li>
+				<li class=""><a href="<?php echo Conectar::ruta();?>ventas.php">VENTAS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-lock"></span></a></li>
+				<li class=""><a href="usuarios.php">USUARIOS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li class=""><a href="<?php echo Conectar::ruta();?>basedatos.php">BASE DATOS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a></li>
+				<li class=""><a href="<?php echo Conectar::ruta();?>configuracion.php">CONFIGURACION<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-wrench"></span></a></li>
+				<li class=""><a href="logout.php">CERRAR SESION<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></span></a></li>
 				
-				<ul class="nav nav-pills nav-stacked menu_izquierdo">
-
-			
-				  <li class="btn btn-default">Menu</li>
-<li role="presentation" class=""><a class="btn btn-primary ajax-link" href="<?php echo Conectar::ruta();?>home.php"> <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Inicio </a></li>
-<li role="presentation" class=""> <a class="btn btn-primary ajax-link" href="<?php echo Conectar::ruta();?>clientes.php"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Clientes</a></li>
-<li role="presentation" class=""><a class="btn btn-primary ajax-link" href="<?php echo Conectar::ruta();?>proveedores.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Proveedores</a></li>
-<li role="presentation" class=""><a class="btn btn-primary ajax-link" href="<?php echo Conectar::ruta();?>entradas.php"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Entradas</a></li>
-<li role="presentation" class=""><a class="btn btn-primary ajax-link" href="<?php echo Conectar::ruta();?>almacen.php"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Almacen</a></li>
-<li role="presentation" class=""><a class="btn btn-primary ajax-link" href="<?php echo Conectar::ruta();?>ventas.php"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Ventas</a></li>
-<li role="presentation" class=""><a class="btn btn-primary ajax-link" href="usuarios.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuarios</a></li>
-<li role="presentation" class=""><a class="btn btn-primary ajax-link" href="<?php echo Conectar::ruta();?>basedatos.php"><span class=" glyphicon glyphicon-file" aria-hidden="true"></span> Base de Datos</a></li>
-<li role="presentation" class=""><a class="btn btn-primary ajax-link" href="<?php echo Conectar::ruta();?>configuracion.php"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Configuración</a></li>
-<li role="presentation" class=""><a class="btn btn-primary ajax-link" href="logout.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Cerrar Sesión</a></li>
-
-</ul><!--/.btn-group-vertical -->
-         
-			
-			<!-- left menu ends -->
-
- 
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="main">
+<!-- Content Here -->
+</div>

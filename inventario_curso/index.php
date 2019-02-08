@@ -18,6 +18,8 @@ $usuario= new Usuarios();
 <html lang="en">
 <link rel="stylesheet" href="public/css/estilos formulario.css" type="text/css">
 <link rel="stylesheet" href="public/css/style.css" type="text/css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
 
 <head>
 	<meta charset="UTF-8">
@@ -27,16 +29,28 @@ $usuario= new Usuarios();
 	<body class="pagina_index">		
 		<h1 align="center">SISTEMA DE CONTROL DE INVENTARIO VARIEDADES YEYIS CASTILLO </h1>			    
 		<div align="center"><img src="public/images/logo sena.gif" height="150"></div>
-		<form method="post" action="">	
+		<form method="post" action="">
+		
+			<!--formulario inicio de sesion-->
+			
 			<div class='login'>
-				<h2>INICIO</h2>
+				<h2 class= "white">INICIO</h2>
+				
+				<div>
 				<input name='usuario' placeholder='USUARIO' type='text'/>
-				<input id='pw' name='password' placeholder='CONTRASEÑA' type='password'/>
-				<div class='remember'>
-					<input checked='' id='remember' name='remember' type='checkbox'/>
-					<label for='remember'></label> Moostrar Contraseña
 				</div>
+				<div class="input-group">
+					<input id='pw' name='password' placeholder='CONTRASEÑA' type='password'/>
+					<span id="show-hide-passwd" action="hide" class="input-group-addon glyphicon glyphicon glyphicon-eye-open"></span>
+					
+				</div>
+				
+				<br />
+	
+			 
+			    <div> 
 				<input type='submit' value='ENTRAR'/>
+				</div>
 				
 			</div>    
 			<input type="hidden" name="grabar" value="si">
