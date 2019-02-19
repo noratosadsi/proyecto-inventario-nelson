@@ -36,7 +36,7 @@
      		</div><!--row-->
      	</div><!--container-->
 
-     	<?php require_once("footer.php");?>
+     	<?php //require_once("footer.php");?>
      </div><!--container-fluid-->
     
 </body>

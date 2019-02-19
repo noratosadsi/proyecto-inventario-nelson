@@ -87,7 +87,7 @@ require_once("class/config.php");
     	<?php require_once("footer_js_tabla.php");?>
     </div><!--container-fluid-->
 
-    <?php require_once("footer.php");?>
+    <?php //require_once("footer.php");?>
 	
 </body>
 </html>

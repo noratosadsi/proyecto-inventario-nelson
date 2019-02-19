@@ -101,7 +101,7 @@
 	
 	<?php require_once("footer_js_tabla.php");?>
 
-	<?php require_once("footer.php");?>
+	<?php //require_once("footer.php");?>
 </body>
 </html>
 
