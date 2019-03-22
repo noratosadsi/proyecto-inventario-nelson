@@ -29,11 +29,11 @@
 		<div class="container-fluid">
 			<div class="row">
 				
-				<div class="col-sm-3">
+				<div class="col-sm-2">
 					<?php require_once("menu_lateral.php");?>
 				</div>
 
-				<div class="col-sm-8">
+				<div class="col-sm-10">
 					
 					<div class="panel-configuracion">
 						 <ol class="breadcrumb">
