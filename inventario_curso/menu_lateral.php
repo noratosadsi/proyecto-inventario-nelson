@@ -75,13 +75,13 @@ $menu_configuracion = array("configuracion.php", "agregar_configuracion.php", "e
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Brand</a>
+			<a class="navbar-brand" href="#" style="color:orange";>MENU LATERAL</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li <?php echo @$active_inicio;?>><a href="<?php echo Conectar::ruta();?>home.php">INICIO<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li <?php echo @$active_cliente;?>><a href="<?php echo Conectar::ruta();?>clientes.php">CLIENTES<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li <?php echo @$active_cliente;?>><a href="<?php echo Conectar::ruta();?>clientes.php" style="color:#FF0000";>VENTAS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-lock"></span></a></li>
 				<li <?php echo @$active_proveedor;?>><a href="<?php echo Conectar::ruta();?>proveedores.php">PROVEEDORES<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
 				<li <?php  echo @$active_entradas; ?>>
 					<a href="<?php echo Conectar::ruta();?>entradas.php" class="" >ENTRADAS <span class=""></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-shopping-cart"></span></a>
@@ -95,11 +95,11 @@ $menu_configuracion = array("configuracion.php", "agregar_configuracion.php", "e
 						<li><a href="#">One more separated link</a></li>
 					</ul>-->
 				</li>
-				<li <?php if($archivo1=="almacen.php"){ echo "class=\"active\"";};?>><a href="<?php echo Conectar::ruta();?>almacen.php">ALMACEN<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a></li>
-				<li <?php if($archivo1=="ventas.php"){ echo "class=\"active\"";};?>><a href="<?php echo Conectar::ruta();?>ventas.php">VENTAS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-lock"></span></a></li>
+				<li <?php if($archivo1=="almacen.php"){ echo "class=\"active\"";};?>><a href="<?php echo Conectar::ruta();?>almacen.php" style="color:#FF0000";>ALMACEN<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a></li>
+				<li <?php if($archivo1=="ventas.php"){ echo "class=\"active\"";};?>><a href="<?php echo Conectar::ruta();?>ventas.php" style="color:#FF0000";>VENTAS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-lock"></span></a></li>
 				<li <?php echo @$active_usuarios; ?>><a href="usuarios.php">USUARIOS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li <?php if($archivo1=="basedatos.php"){ echo "class=\"active\"";};?>><a href="<?php echo Conectar::ruta();?>basedatos.php">BASE DATOS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a></li>
-				<li <?php echo @$active_configuracion; ?>><a href="<?php echo Conectar::ruta();?>configuracion.php">CONFIGURACION<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-wrench"></span></a></li>
+				<li <?php if($archivo1=="basedatos.php"){ echo "class=\"active\"";};?>><a href="<?php echo Conectar::ruta();?>basedatos.php" style="color:#FF0000";>BASE DATOS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a></li>
+				<li <?php echo @$active_configuracion; ?>><a href="<?php echo Conectar::ruta();?>configuracion.php" style="color:#FF0000";>CONFIGURACION<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-wrench"></span></a></li>
 				<li class=""><a href="logout.php">CERRAR SESION<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></span></a></li>
 				
 			</ul>

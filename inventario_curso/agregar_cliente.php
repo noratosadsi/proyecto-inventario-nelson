@@ -41,9 +41,9 @@
 					<div class="panel-cliente">
 						<ol class="breadcrumb">
 						  <li><a href="<?php echo Conectar::ruta();?>home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Principal</a></li>
-						  <li><a href="<?php echo Conectar::ruta();?>clientes.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Clientes</a></li>
-						  <li><a href="<?php echo Conectar::ruta();?>agregar_cliente.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Agregar Cliente</a></li>
-						   <li><a href="<?php echo Conectar::ruta();?>reporte_clientes.php"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> listado de clientes en pdf</a></li>
+						  <li><a href="<?php echo Conectar::ruta();?>clientes.php"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> VENTAS</a></li>
+						  <li><a href="<?php echo Conectar::ruta();?>agregar_cliente.php"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>AGREGAR VENTAS</a></li>
+						   <li><a href="<?php echo Conectar::ruta();?>reporte_clientes.php"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> LISTADO VENTAS PDF</a></li>
 						</ol>
 					</div>
 
@@ -71,44 +71,44 @@
 					<div class="panel panel-default">
 						 
 						 <div class="panel-heading">
-						 	<h3 class="panel-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Registro de Clientes</h3>
+						 	<h3 class="panel-title"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> REGISTRO DE VENTAS</h3>
 						 </div>
 
 						 <div class="panel-body">
 						 	 <form action="" method="post" class="form-horizontal">
 						
 						   <div class="form-group">
-							<label for="" class="col-sm-2 control-label">Nombre</label>
+							<label for="" class="col-sm-2 control-label">PRODUCTO</label>
 							<div class="col-sm-6">
-								<input type="text" name="nombre" class="form-control" placeholder="ingrese su nombre">
+								<input type="text" name="producto" class="form-control" placeholder="ingrese producto">
 							</div>
 						    </div>
 						                           
                            <div class="form-group">
-							<label for="" class="col-sm-2 control-label">Apellido</label>
+							<label for="" class="col-sm-2 control-label">CANTIDAD</label>
 							<div class="col-sm-6">
-								<input type="text" name="apellido" class="form-control" placeholder="ingrese su apellido">
+								<input type="text" name="cantidad" class="form-control" placeholder="ingrese cantidad">
 							</div>
 						    </div>
 
 							 <div class="form-group">
-							<label for="" class="col-sm-2 control-label">Cédula</label>
+							<label for="" class="col-sm-2 control-label">DESCRIPCION</label>
 							<div class="col-sm-6">
-								<input type="text" name="cedula" class="form-control" placeholder="ingrese su cedula">
+								<input type="text" name="descripcion" class="form-control" placeholder="ingrese descripcion">
 							</div>
 							</div>
 
 							 <div class="form-group">
-							<label for="" class="col-sm-2 control-label">Teléfono</label>
+							<label for="" class="col-sm-2 control-label">PRECIO</label>
 							<div class="col-sm-6">
-								<input type="text" name="telefono" class="form-control" placeholder="ingrese su telefono">
+								<input type="text" name="precio" class="form-control" placeholder="ingrese precio">
 							</div>
 							</div>
 
 							 <div class="form-group">
-							<label for="" class="col-sm-2 control-label">Dirección</label>
+							<label for="" class="col-sm-2 control-label">PRECIO TOTAL</label>
 							<div class="col-sm-6">
-								<input type="text" name="direccion" class="form-control" placeholder="ingrese su direccion">
+								<input type="text" name="preciototal" class="form-control" placeholder="ingrese total">
 							</div>
 							</div>
 

@@ -36,16 +36,16 @@
 		 	 		<div class="panel-cliente">
 		 	 			<ol class="breadcrumb">
 						  <li><a href="<?php echo Conectar::ruta();?>home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-						  <li><a href="<?php echo Conectar::ruta();?>clientes.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Clientes</a></li>
-						  <li><a href="<?php echo Conectar::ruta();?>agregar_cliente.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Nuevo Cliente</a></li>
-						  <li><a href="<?php echo Conectar::ruta();?>reporte_clientes.php"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> listado de clientes en pdf</a></li>
+						  <li><a href="<?php echo Conectar::ruta();?>clientes.php"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> VENTAS</a></li>
+						  <li><a href="<?php echo Conectar::ruta();?>agregar_cliente.php"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> NUEVA VENTA</a></li>
+						  <li><a href="<?php echo Conectar::ruta();?>reporte_clientes.php"><span class="glyphicon glyphicon-print" aria-hidden="true"></span>LISTADO DE VENTAS EN PDF</a></li>
 						</ol>
 		 	 		</div>
 
 		 	 		<div class="panel panel-default">
 		 	 			
                        <div class="panel-heading">
-                       	 <h3 class="panel-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Consulta General de Clientes</h3>
+                       	 <h3 class="panel-title"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> CONSULTA GENERAL DE VENTAS</h3>
                        </div>
 
                        <div class="panel-body">
@@ -54,11 +54,11 @@
                        	    	
                        	      <thead>
                        	      	<tr>
-	                       	      	<th>Cédula</th>
-	                       	      	<th>Nombres</th>
-	                       	      	<th>Apellidos</th>
-	                       	      	<th>Telefono</th>
-	                       	      	<th>Dirección</th>
+	                       	      	<th>PRODUCTO</th>
+	                       	      	<th>CANTIDAD</th>
+	                       	      	<th>DESCRIPCION ARTICULO</th>
+	                       	      	<th>PRECIO UND.</th>
+	                       	      	<th>PRECIO TOTAL</th>
 	                       	      	<th>Fecha</th>
 	                       	      	<th>Acciones</th>
                        	        </tr>

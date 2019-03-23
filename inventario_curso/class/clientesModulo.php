@@ -23,7 +23,7 @@
     	$conectar=parent::conexion();
     	parent::set_names();
 
-    	if(empty($_POST["nombre"]) or empty($_POST["apellido"]) or empty($_POST["cedula"]) or empty($_POST["telefono"]) or empty($_POST["direccion"])){
+    	if(empty($_POST["producto"]) or empty($_POST["cantidad"]) or empty($_POST["descripcion"]) or empty($_POST["precio"]) or empty($_POST["preciototal"])){
           
           header("Location:".Conectar::ruta()."agregar_cliente.php?m=1");
           exit();
@@ -34,11 +34,11 @@
 
     	$sql=$conectar->prepare($sql);
 
-    	$sql->bindValue(1,$_POST["cedula"]);
-    	$sql->bindValue(2, $_POST["nombre"]);
-    	$sql->bindValue(3, $_POST["apellido"]);
-    	$sql->bindValue(4, $_POST["telefono"]);
-    	$sql->bindValue(5, $_POST["direccion"]);
+    	$sql->bindValue(1,$_POST["producto"]);
+    	$sql->bindValue(2, $_POST["cantidad"]);
+    	$sql->bindValue(3, $_POST["descripcion"]);
+    	$sql->bindValue(4, $_POST["precio"]);
+    	$sql->bindValue(5, $_POST["preciototal"]);
     	$sql->execute();
 
     	$resultado=$sql->fetch(PDO::FETCH_ASSOC);
@@ -68,7 +68,7 @@
     	$conectar=parent::conexion();
     	parent::set_names();
 
-    	if(empty($_POST["nombre"]) or empty($_POST["apellido"]) or empty($_POST["cedula"]) or empty($_POST["telefono"]) or empty($_POST["direccion"])){
+    	if(empty($_POST["producto"]) or empty($_POST["cantidad"]) or empty($_POST["descripcion"]) or empty($_POST["precio"]) or empty($_POST["preciototal"])){
           
           header("Location:".Conectar::ruta()."editar_cliente.php?id_cliente=".$_POST["id"]."&m=1");
           exit();
@@ -89,11 +89,11 @@
 
     	$sql=$conectar->prepare($sql);
 
-    	$sql->bindValue(1, $_POST["cedula"]);
-    	$sql->bindValue(2, $_POST["nombre"]);
-    	$sql->bindValue(3, $_POST["apellido"]);
-    	$sql->bindValue(4, $_POST["telefono"]);
-    	$sql->bindValue(5, $_POST["direccion"]);
+    	$sql->bindValue(1, $_POST["producto"]);
+    	$sql->bindValue(2, $_POST["cantidad"]);
+    	$sql->bindValue(3, $_POST["descripcion"]);
+    	$sql->bindValue(4, $_POST["precio"]);
+    	$sql->bindValue(5, $_POST["preciototal"]);
         $sql->bindValue(6, $_POST["id"]);
         $sql->execute();
 

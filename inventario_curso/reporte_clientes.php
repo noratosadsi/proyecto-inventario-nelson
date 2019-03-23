@@ -17,7 +17,7 @@ $datos=$clientes->get_clientes();
 
 $datos_empresa=$informacion_empresa->get_configuracion();
 
-ob_start(); 
+//ob_start(); 
 
    
 ?>
@@ -67,7 +67,7 @@ ob_start();
 </td>
 </table>
 </tr>
-</table>
+	</table>
 
 
   <div style="font-size: 7pt">
@@ -126,7 +126,7 @@ for($i=0;$i<sizeof($datos);$i++) {
 
 
   <?php
-  
+/*  
   $salida_html = ob_get_contents();
   ob_end_clean(); 
 
@@ -136,7 +136,7 @@ for($i=0;$i<sizeof($datos);$i++) {
     $dompdf->render();
     $dompdf->stream("Listado de Clientes.pdf", array('Attachment'=>'0'));
 
-
+*/
   } else{
 
      require_once("index.php");
