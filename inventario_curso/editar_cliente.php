@@ -45,7 +45,7 @@
 						  <li><a href="<?php echo Conectar::ruta();?>home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Principal</a></li>
 						  <li><a href="<?php echo Conectar::ruta();?>clientes.php"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> VENTAS</a></li>
 						  <li><a href="<?php echo Conectar::ruta();?>agregar_cliente.php"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>AGREGAR VENTA</a></li>
-						   <li><a href="<?php echo Conectar::ruta();?>reporte_clientes.php"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> LISTADO DE VENTAS EN PDF</a></li>
+						   <li><a href="<?php echo Conectar::ruta();?>PDF.PHP"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> LISTADO DE VENTAS EN PDF</a></li>
 						</ol>
 					</div>
 

@@ -2,13 +2,29 @@
 
 <?php
 
+require_once("class/config.php"); 
+
+  if(isset($_SESSION["backend_id"]) and isset($_SESSION["nombre"]) and isset($_SESSION["cedula"])){
+
+require_once("class/clientesModulo.php");
+require_once("class/configuracionModulo.php");
+
+$clientes=new Clientes();
+
+$informacion_empresa=new Configuracion();
+
+
+$datos=$clientes->get_clientes();
+
+$datos_empresa=$informacion_empresa->get_configuracion();
+
+
 ob_start(); 
 
    
 ?>
 
-<html><head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="img/favicon.ico">
 <link type="text/css" rel="stylesheet" href=""/>
 <style type="text/css">
@@ -22,31 +38,58 @@ ob_start();
 .Estilo10 {font-size: 9px; font-weight: bold; }
 .Estilo11 {color: #FFFFFF}
 </style>
-	</head></html>
+
+<table style="width: 100%;" class="header">
+	<tr>
+		<td width="54%" height="111"><h1 style="text-align: left; margin-right:20px;"><img src="public/images/logo sena sistema.png" width="340" height="109"  /></h1></td>
+		<td width="46%">
+	</tr>
+	</table>
  
+<table width="100%" class="change_order_items">
+ 	<tr>
+  		<th colspan="7">LISTADO GENERAL DE CLIENTES </th>
+  	</tr>
+ 	<tr>
+ 		<th width="5%" bgcolor="#317eac"><span class="Estilo11">N&ordm;</span></th>
+		<th width="8%" bgcolor="#317eac"><span class="Estilo11">PRODUCTO</span></th>
+		<th width="15%" bgcolor="#317eac"><span class="Estilo11">CANTIDAD</span></th>
+		<th width="15%" bgcolor="#317eac"><span class="Estilo11">DESCRIPCION PRODUCTO</span></th>
+		<th width="7%" bgcolor="#317eac"><span class="Estilo11">PRECIO</span></th>
+		<th width="38%" bgcolor="#317eac"><span class="Estilo11">PRECIO TOTAL</span></th>
+		<th width="30%" bgcolor="#317eac"><span class="Estilo11">FECHA</span></th>
+ 	</tr>
+ 	<?php
+	  	for($i=0;$i<sizeof($datos);$i++) {
+  	?>
+ 	<tr>
+		<td><div align="center"><span class="Estilo3"><?php echo $datos[$i]['cod_cliente']; ?></span></div></td>
+		<td><div align="center"><span class="Estilo3"><?php echo $datos[$i]['ced_cliente']; ?></span></div></td>
+		<td style="text-align: center"><div align="center"><span><?php echo $datos[$i]['nom_cliente']; ?></span></div></td>
+		<td style="text-align: center"><div align="center"><span><?php echo $datos[$i]['ape_cliente']; ?></span></div></td>
+		<td style="text-align: center"><div align="center"><span><?php echo $datos[$i]['tlf_cliente']; ?></span></div></td>
+		<td style="text-align: right"><div align="center"><span><?php echo $datos[$i]['direc_cliente']; ?></span></div></td>
+		<td style="text-align:center"><div align="center"><span><?php echo $datos[$i]['fecha']; ?></span></div></td>
+	</tr>
+	<?php } ?> 	
+ </table></html>
   
-<html><table style="width: 100%;" class="header">
+<!--<html><table style="width: 100%;" class="header">
 <tr><td width="54%" height="111"><h1 style="text-align: left; margin-right:20px;"><img src="public/images/logo_vertical.jpg" width="340" height="109"  /></h1></td>
 <td width="46%"></tr>
-</table></html>
+	</table></html>
  
  
 <html><table width="100%" class="change_order_items">
-<tbody>
+
 <tr>
   <th colspan="7">LISTADO GENERAL DE CLIENTES </th>
   </tr>
 <tr>
-<th width="5%" bgcolor="#317eac"><span class="Estilo11">N&ordm;</span></th>
-<th width="8%" bgcolor="#317eac"><span class="Estilo11">CEDULA</span></th>
-<th width="15%" bgcolor="#317eac"><span class="Estilo11">NOMBRES</span></th>
-<th width="15%" bgcolor="#317eac"><span class="Estilo11">APELLIDOS</span></th>
-<th width="7%" bgcolor="#317eac"><span class="Estilo11">TELEFONO</span></th>
-<th width="38%" bgcolor="#317eac"><span class="Estilo11">DIRECCIÓN</span></th>
-<th width="30%" bgcolor="#317eac"><span class="Estilo11">FECHA</span></th>
+
 </tr>
 <?php
-for($i=0;$i<sizeof($datos);$i++) {
+//for($i=0;$i<sizeof($datos);$i++) {
   ?>
 <tr>
 <td><div align="center"><span class="Estilo3"><?php echo $datos[$i]['cod_cliente']; ?></span></div></td>
@@ -57,9 +100,9 @@ for($i=0;$i<sizeof($datos);$i++) {
 <td style="text-align: right"><div align="center"><span><?php echo $datos[$i]['direc_cliente']; ?></span></div></td>
 <td style="text-align:center"><div align="center"><span><?php echo $datos[$i]['fecha']; ?></span></div></td>
 </tr>
-<?php } ?>
-</tbody>
-</table></html>
+<?php //} ?>
+
+</table></html>-->
 
  <?php
   
@@ -72,5 +115,10 @@ for($i=0;$i<sizeof($datos);$i++) {
     $dompdf->render();
     $dompdf->stream("Listado de Clientes.pdf", array('Attachment'=>'0'));
 
+	  } else{
+
+     require_once("index.php");
+  }
+    
     
 ?>
