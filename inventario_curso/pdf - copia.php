@@ -20,9 +20,8 @@ $datos_empresa=$informacion_empresa->get_configuracion();
 
 
 ob_start();
-
-error_reporting(E_ERROR);
 ?>
+<!--
 <html><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="img/favicon.ico">
 <link type="text/css" rel="stylesheet" href=""/>
@@ -59,7 +58,7 @@ error_reporting(E_ERROR);
 		<th width="30%" bgcolor="#317eac"><span class="Estilo11">FECHA</span></th>
  	</tr>
  	<?php
-	  	for($i=0;$i<sizeof($datos);$i++) {
+	  	//for($i=0;$i<sizeof($datos);$i++) {
   	?>
  	<tr>
 		<td><div align="center"><span class="Estilo3"><?php echo $datos[$i]['cod_cliente']; ?></span></div></td>
@@ -70,19 +69,20 @@ error_reporting(E_ERROR);
 		<td style="text-align: right"><div align="center"><span><?php echo $datos[$i]['direc_cliente']; ?></span></div></td>
 		<td style="text-align:center"><div align="center"><span><?php echo $datos[$i]['fecha']; ?></span></div></td>
 	</tr>
-	<?php } ?> 	
- </table></html>
+	<?php //} ?> 	
+ </table></html>-->
  
  <?php
+  
+ $salida_html = ob_get_contents();
+  ob_end_clean(); 
 
-require_once("public/dompdf/dompdf_config.inc.php");
-$dompdf=new DOMPDF();
-$dompdf->set_paper(array(0,0,1000,1000));
-$dompdf->load_html(ob_get_clean());
-$dompdf->render();
-$pdf=$dompdf->output();
-$filename="recibo.pdf";
-$dompdf->stream($filename, array("Attachment"=>0));
+    require_once("public/dompdf/dompdf_config.inc.php");       
+    $dompdf = new DOMPDF();
+    $dompdf->load_html($salida_html);
+    $dompdf->render();
+    $dompdf->stream("pdf.pdf", array('Attachment'=>'0'));
+
 	  } else{
 
      require_once("index.php");
