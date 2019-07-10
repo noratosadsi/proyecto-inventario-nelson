@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-03-2017 a las 02:10:18
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 5.6.30
+-- Tiempo de generación: 10-07-2019 a las 07:33:34
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -27,48 +29,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `clientes` (
-  `cod_cliente` int(11) NOT NULL,
-  `ced_cliente` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `nom_cliente` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `ape_cliente` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `tlf_cliente` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `direc_cliente` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `fecha` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+  `idclientes` int(11) NOT NULL COMMENT 'id de la tabla clientes',
+  `cedula` varchar(45) NOT NULL COMMENT 'cedula del cliente',
+  `nombre` varchar(45) DEFAULT NULL COMMENT 'nombre del cliente',
+  `telefono` varchar(45) DEFAULT NULL COMMENT 'telefono del cliente',
+  `direccion` varchar(45) DEFAULT NULL COMMENT 'direccion del cliente',
+  `correo` varchar(45) DEFAULT NULL COMMENT 'correo del cliente',
+  `fecha` date DEFAULT NULL COMMENT 'fecha de registro del cliente'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`cod_cliente`, `ced_cliente`, `nom_cliente`, `ape_cliente`, `tlf_cliente`, `direc_cliente`, `fecha`) VALUES
-(2, '12345', 'Franco', 'Gonzalez', '12255455855', 'Calle Argentina, Buenos Aires', '2017-03-15');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `configuracion`
---
-
-CREATE TABLE `configuracion` (
-  `codigo` int(11) NOT NULL,
-  `rif_empresa` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `nom_empresa` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `direc_empresa` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `tlf_empresa` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `ced_gerente` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `nom_gerente` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `ape_gerente` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `correo_gerente` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `tlf_gerente` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `iva` float(6,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `configuracion`
---
-
-INSERT INTO `configuracion` (`codigo`, `rif_empresa`, `nom_empresa`, `direc_empresa`, `tlf_empresa`, `ced_gerente`, `nom_gerente`, `ape_gerente`, `correo_gerente`, `tlf_gerente`, `iva`) VALUES
-(2, '789456', 'GOOGLE', 'ESTADOS UNIDOS', '145857455665', '45556584555', 'Luis', 'Lopez', 'lopez@gmail.com', '5555458554', 30.00);
+INSERT INTO `clientes` (`idclientes`, `cedula`, `nombre`, `telefono`, `direccion`, `correo`, `fecha`) VALUES
+(1, 'cuaderno', '1', 'cuaderno 100 hojas', '2000', '2000', '2019-07-10');
 
 -- --------------------------------------------------------
 
@@ -77,27 +52,12 @@ INSERT INTO `configuracion` (`codigo`, `rif_empresa`, `nom_empresa`, `direc_empr
 --
 
 CREATE TABLE `orden_compras` (
-  `id_orden_compras` int(11) NOT NULL,
-  `cod_material` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `material` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `precio_orden` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `cantidad` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `rif_proveedor` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `fecha_ingreso` date NOT NULL
+  `id_orden_compras` int(11) NOT NULL COMMENT 'id de la orden de compras de la tabla orden compras',
+  `precio_orden` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'precios de orden de la tabla orden compras',
+  `cantidad` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'cantidad de la tabla orden compras',
+  `fecha_ingreso` date NOT NULL COMMENT 'fecha de ingreso de la tabla orden compras',
+  `productos_idproductos` int(11) NOT NULL COMMENT 'id del producto de la tabla productos'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `orden_compras`
---
-
-INSERT INTO `orden_compras` (`id_orden_compras`, `cod_material`, `material`, `precio_orden`, `cantidad`, `rif_proveedor`, `fecha_ingreso`) VALUES
-(2, '004', 'block de dibujo', '100', '250', '12555', '2017-03-20'),
-(3, '005', 'creyones', '50', '300', '12555', '2017-03-20'),
-(4, '006', 'borradores', '50', '150', '12555', '2017-03-20'),
-(6, '007', 'lapiceros de colores', '25', '230', '12555', '2017-03-20'),
-(7, '008', 'cuaderno', '15', '500', '12555', '2017-03-20'),
-(8, '009', 'libreta de dos materias ', '25', '250', '12555', '2017-03-20'),
-(9, '002', 'resma de hojas tipo carta', '25', '350', '1234', '2017-03-20');
 
 -- --------------------------------------------------------
 
@@ -106,21 +66,28 @@ INSERT INTO `orden_compras` (`id_orden_compras`, `cod_material`, `material`, `pr
 --
 
 CREATE TABLE `pedidos` (
-  `cod_pedido` int(11) NOT NULL,
-  `cod_material` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `material_pedido` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `cantidad_pedido` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `fecha_pedido` date NOT NULL,
-  `rif_proveedor` varchar(200) COLLATE utf8_spanish2_ci NOT NULL
+  `idpedido` int(11) NOT NULL COMMENT 'codigo de la tabla pedidos ',
+  `cantidad_pedido` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'cantidad de pedidos de la tabla pedidos ',
+  `fecha_pedido` date NOT NULL COMMENT 'fecha en que se hace el pedido de la tabla pedidos',
+  `usuarios_id` int(11) NOT NULL COMMENT 'id de la tabla usuarios',
+  `proveedores_idproveedor` int(11) NOT NULL COMMENT 'id del proveedor de la tabla proveedores',
+  `orden_compras_id_orden_compras` int(11) NOT NULL COMMENT 'id del orden de compras de la tabla orden compras'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+-- --------------------------------------------------------
+
 --
--- Volcado de datos para la tabla `pedidos`
+-- Estructura de tabla para la tabla `productos`
 --
 
-INSERT INTO `pedidos` (`cod_pedido`, `cod_material`, `material_pedido`, `cantidad_pedido`, `fecha_pedido`, `rif_proveedor`) VALUES
-(1, '001', 'libreta de 5 materias', '500', '2017-03-17', '1234'),
-(2, '003', 'cartulinas', '200', '2017-03-20', '12555');
+CREATE TABLE `productos` (
+  `idproductos` int(11) NOT NULL COMMENT 'id de la tabla productos',
+  `nombre` varchar(45) NOT NULL COMMENT 'nombre del producto',
+  `precio` int(11) NOT NULL COMMENT 'precio del producto',
+  `cantidad` int(11) NOT NULL COMMENT 'cantidad del producto',
+  `descripcion` varchar(45) NOT NULL COMMENT 'descripcion del producto',
+  `usuarios_id` int(11) NOT NULL COMMENT 'id de la tabla usuarios'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -129,23 +96,41 @@ INSERT INTO `pedidos` (`cod_pedido`, `cod_material`, `material_pedido`, `cantida
 --
 
 CREATE TABLE `proveedores` (
-  `cod_proveedor` int(11) NOT NULL,
-  `rif_proveedor` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `nombre_proveedor` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `tlf_proveedor` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `direc_proveedor` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `email_proveedor` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `nom_contacto` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `fecha` date NOT NULL
+  `idproveedor` int(11) NOT NULL COMMENT 'codigo de la tabla proveedor',
+  `Nit_proveedor` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'nit de la tabla proveedor',
+  `nombre_proveedor` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'nombre de la tabla proveedor',
+  `tlf_proveedor` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'telefono de la tabla proveedor',
+  `direc_proveedor` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'direccion de la tabla proveedor',
+  `email_proveedor` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'correo de la tabla proveedor',
+  `nom_contacto` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'nombre del contacto de la tabla proveedores',
+  `fecha` date NOT NULL COMMENT 'fecha de la tabla proveedores'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `proveedores`
 --
 
-INSERT INTO `proveedores` (`cod_proveedor`, `rif_proveedor`, `nombre_proveedor`, `tlf_proveedor`, `direc_proveedor`, `email_proveedor`, `nom_contacto`, `fecha`) VALUES
-(1, '1234', 'carlos', '45', 'buenos aires12', 'b@gmail.com12', '44', '2017-03-29'),
-(2, '12555', 'pedro', '12555', 'san carlos costa rica', 'd@gmail.com', 'peter', '2017-03-16');
+INSERT INTO `proveedores` (`idproveedor`, `Nit_proveedor`, `nombre_proveedor`, `tlf_proveedor`, `direc_proveedor`, `email_proveedor`, `nom_contacto`, `fecha`) VALUES
+(3, '123', 'nombre', 'telefono', 'direccion', 'prov@prov.com', 'contacto', '2019-07-10');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rol`
+--
+
+CREATE TABLE `rol` (
+  `idrol` int(11) NOT NULL COMMENT 'id de la tabla rol',
+  `Nombre` varchar(45) NOT NULL COMMENT 'nombre del rol '
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `rol`
+--
+
+INSERT INTO `rol` (`idrol`, `Nombre`) VALUES
+(1, 'Administrador'),
+(2, 'Usuario');
 
 -- --------------------------------------------------------
 
@@ -154,25 +139,39 @@ INSERT INTO `proveedores` (`cod_proveedor`, `rif_proveedor`, `nombre_proveedor`,
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `cedula` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `cargo` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `usuario` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `password` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `password2` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `pregunta` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `respuesta` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `nivel` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `fecha_ingreso` date NOT NULL
+  `id` int(11) NOT NULL COMMENT 'id de la tabla usuarios',
+  `nombre` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'nombre de la tabla usuarios',
+  `cedula` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'cedula de la tabla usuarios',
+  `cargo` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'cargo de la tabla usuarios',
+  `usuario` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'usario o alias de la tabla usuarios',
+  `password` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'contraseña 1 para la comprobacion de la tabla usuarios',
+  `password2` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'contraseña 2 de la tabla usuarios',
+  `pregunta` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'pregunta de seguridad para recuperar el usuario, de la tabla usuarios',
+  `respuesta` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'respuesta a la pregunta seguridad para recuperar usuario, de la tabla usuarios',
+  `fecha_ingreso` date NOT NULL COMMENT 'fecha ingreso de la tabla usuarios',
+  `rol_idrol` int(11) NOT NULL COMMENT 'id rol de la tabla rol, de la tabla usuarios\n'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `cedula`, `cargo`, `usuario`, `password`, `password2`, `pregunta`, `respuesta`, `nivel`, `fecha_ingreso`) VALUES
-(1, 'carlos', '123', 'admin', 'carlos', '123', '123', 'nombre mascota', 'perro', 'administrador', '2017-03-13');
+INSERT INTO `usuarios` (`id`, `nombre`, `cedula`, `cargo`, `usuario`, `password`, `password2`, `pregunta`, `respuesta`, `fecha_ingreso`, `rol_idrol`) VALUES
+(2, 'carlos', '123', 'admin', 'carlos', '123', '123', 'nombre mascota', 'perro', '2019-07-10', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventas`
+--
+
+CREATE TABLE `ventas` (
+  `idventas` int(11) NOT NULL COMMENT 'codigo de la tabla ventas',
+  `cantidad` int(11) NOT NULL COMMENT 'cantidades de la tabla ventas',
+  `fecha` date NOT NULL COMMENT 'fecha de la tabla ventas',
+  `usuarios_id` int(11) NOT NULL COMMENT 'id de la tabla usuarios',
+  `clientes_idclientes` int(11) NOT NULL COMMENT 'id de la tabla clientes'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Índices para tablas volcadas
@@ -182,37 +181,57 @@ INSERT INTO `usuarios` (`id`, `nombre`, `cedula`, `cargo`, `usuario`, `password`
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`cod_cliente`);
-
---
--- Indices de la tabla `configuracion`
---
-ALTER TABLE `configuracion`
-  ADD PRIMARY KEY (`codigo`);
+  ADD PRIMARY KEY (`idclientes`);
 
 --
 -- Indices de la tabla `orden_compras`
 --
 ALTER TABLE `orden_compras`
-  ADD PRIMARY KEY (`id_orden_compras`);
+  ADD PRIMARY KEY (`id_orden_compras`),
+  ADD KEY `fk_orden_compras_productos1_idx` (`productos_idproductos`);
 
 --
 -- Indices de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  ADD PRIMARY KEY (`cod_pedido`);
+  ADD PRIMARY KEY (`idpedido`),
+  ADD KEY `fk_pedidos_usuarios1_idx` (`usuarios_id`),
+  ADD KEY `fk_pedidos_proveedores1_idx` (`proveedores_idproveedor`),
+  ADD KEY `fk_pedidos_orden_compras1_idx` (`orden_compras_id_orden_compras`);
+
+--
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`idproductos`),
+  ADD KEY `fk_productos_usuarios1_idx` (`usuarios_id`);
 
 --
 -- Indices de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  ADD PRIMARY KEY (`cod_proveedor`);
+  ADD PRIMARY KEY (`idproveedor`);
+
+--
+-- Indices de la tabla `rol`
+--
+ALTER TABLE `rol`
+  ADD PRIMARY KEY (`idrol`);
 
 --
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_usuarios_Rol1_idx` (`rol_idrol`);
+
+--
+-- Indices de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD PRIMARY KEY (`idventas`),
+  ADD KEY `fk_ventas_usuarios1_idx` (`usuarios_id`),
+  ADD KEY `fk_ventas_clientes1_idx` (`clientes_idclientes`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -222,32 +241,82 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `cod_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `configuracion`
---
-ALTER TABLE `configuracion`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idclientes` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla clientes', AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de la tabla `orden_compras`
 --
 ALTER TABLE `orden_compras`
-  MODIFY `id_orden_compras` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_orden_compras` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la orden de compras de la tabla orden compras', AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `cod_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idpedido` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla pedidos ';
+
+--
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `idproductos` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla productos';
+
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `cod_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idproveedor` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla proveedor', AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla usuarios', AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  MODIFY `idventas` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla ventas', AUTO_INCREMENT=7;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `orden_compras`
+--
+ALTER TABLE `orden_compras`
+  ADD CONSTRAINT `fk_orden_compras_productos1` FOREIGN KEY (`productos_idproductos`) REFERENCES `productos` (`idproductos`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD CONSTRAINT `fk_pedidos_orden_compras1` FOREIGN KEY (`orden_compras_id_orden_compras`) REFERENCES `orden_compras` (`id_orden_compras`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_pedidos_proveedores1` FOREIGN KEY (`proveedores_idproveedor`) REFERENCES `proveedores` (`idproveedor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_pedidos_usuarios1` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD CONSTRAINT `fk_productos_usuarios1` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `fk_usuarios_Rol1` FOREIGN KEY (`rol_idrol`) REFERENCES `rol` (`idrol`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD CONSTRAINT `fk_ventas_clientes1` FOREIGN KEY (`clientes_idclientes`) REFERENCES `clientes` (`idclientes`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_ventas_usuarios1` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

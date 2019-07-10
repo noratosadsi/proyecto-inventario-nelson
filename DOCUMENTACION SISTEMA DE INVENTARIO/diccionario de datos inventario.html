@@ -53,7 +53,7 @@
 <div id="title-sect">
 <h1>inventario_curso<br> Data Dictionay</h1>
 <p>
-<em>2019-06-13</em>
+<em>2019-07-10</em>
 </p>
 <p class="proj-desc">
 <em></em>
@@ -62,7 +62,6 @@
 <h2>Alphabetic Index</h2>
 <ul>
 <li><a href='#clientes'>clientes</a></li>
-<li><a href='#datos_ negocio'>datos_ negocio</a></li>
 <li><a href='#orden_compras'>orden_compras</a></li>
 <li><a href='#pedidos'>pedidos</a></li>
 <li><a href='#productos'>productos</a></li>
@@ -89,14 +88,14 @@
 </tr>
 <tr>
     <td>idclientes</td>
-    <td>INT</td>
+    <td>INT(11)</td>
     <td>&#10004;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
+    <td>&#10004;</td>
     <td></td>
     <td>id de la tabla clientes</td>
 </tr>
@@ -104,7 +103,7 @@
     <td>cedula</td>
     <td>VARCHAR(45)</td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -123,7 +122,7 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td class='attr'>&nbsp;</td>
-    <td></td>
+    <td>NULL</td>
     <td>nombre del cliente</td>
 </tr>
 <tr>
@@ -136,7 +135,7 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td class='attr'>&nbsp;</td>
-    <td></td>
+    <td>NULL</td>
     <td>telefono del cliente</td>
 </tr>
 <tr>
@@ -149,7 +148,7 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td class='attr'>&nbsp;</td>
-    <td></td>
+    <td>NULL</td>
     <td>direccion del cliente</td>
 </tr>
 <tr>
@@ -162,12 +161,12 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td class='attr'>&nbsp;</td>
-    <td></td>
+    <td>NULL</td>
     <td>correo del cliente</td>
 </tr>
 <tr>
     <td>fecha</td>
-    <td>VARCHAR(45)</td>
+    <td>DATE</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -175,167 +174,8 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>fecha del cliente</td>
-</tr>
-<table id='datos_ negocio'>
-<caption>datos_ negocio</caption>
-<tr><td colspan='11'></td></tr>
-<tr>
-    <th>Column name</th>
-    <th>DataType</th>
-    <th><abbr title='Primary Key'>PK</abbr></th>
-    <th><abbr title='Not Null'>NN</abbr></th>
-    <th><abbr title='Unique'>UQ</abbr></th>
-    <th><abbr title='Binary'>BIN</abbr></th>
-    <th><abbr title='Unsigned'>UN</abbr></th>
-    <th><abbr title='Zero Fill'>ZF</abbr></th>
-    <th><abbr title='Auto Increment'>AI</abbr></th>
-    <th>Default</th>
-    <th>Comment</th>
-</tr>
-<tr>
-    <td>codigo</td>
-    <td>INT(11)</td>
-    <td>&#10004;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td></td>
-    <td>codigo de la tabla datos negocio</td>
-</tr>
-<tr>
-    <td>nit_negocio</td>
-    <td>VARCHAR(200)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>nit del negocio de tabla datos negocio</td>
-</tr>
-<tr>
-    <td>nom_negocio</td>
-    <td>VARCHAR(200)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>nombre del negocio de la tabla datos negocio</td>
-</tr>
-<tr>
-    <td>direc_negocio</td>
-    <td>VARCHAR(200)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>direccion del negocio de la tabla datos negocio</td>
-</tr>
-<tr>
-    <td>tlf_ negocio</td>
-    <td>VARCHAR(200)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>telefono del negocio de la tabla negodio</td>
-</tr>
-<tr>
-    <td>ced_gerente</td>
-    <td>VARCHAR(200)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>cedula del gerente de tabla datos negocio</td>
-</tr>
-<tr>
-    <td>nom_gerente</td>
-    <td>VARCHAR(200)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>nombre del gerente de la tabla datos negocio</td>
-</tr>
-<tr>
-    <td>ape_gerente</td>
-    <td>VARCHAR(200)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>apellido del gerente de tabla datos negocio</td>
-</tr>
-<tr>
-    <td>correo_gerente</td>
-    <td>VARCHAR(200)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>correo del gerente de la tabla negocio</td>
-</tr>
-<tr>
-    <td>tlf_gerente</td>
-    <td>VARCHAR(200)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>telefono del gerente de la tabla negocio</td>
-</tr>
-<tr>
-    <td>iva</td>
-    <td>FLOAT(6,2)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>el iva de la tabla negocio</td>
+    <td>NULL</td>
+    <td>fecha de registro del cliente</td>
 </tr>
 <table id='orden_compras'>
 <caption>orden_compras</caption>
@@ -365,32 +205,6 @@
     <td>&#10004;</td>
     <td></td>
     <td>id de la orden de compras de la tabla orden compras</td>
-</tr>
-<tr>
-    <td>cod_material</td>
-    <td>VARCHAR(200)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>codigo de materiales de la tabla orden compras</td>
-</tr>
-<tr>
-    <td>material</td>
-    <td>VARCHAR(200)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>material de la tabla de orden compras</td>
 </tr>
 <tr>
     <td>precio_orden</td>
@@ -432,7 +246,7 @@
     <td>fecha de ingreso de la tabla orden compras</td>
 </tr>
 <tr>
-    <td>proveedores_cod_proveedor</td>
+    <td>productos_idproductos</td>
     <td>INT(11)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
@@ -442,7 +256,7 @@
     <td>&nbsp;</td>
     <td class='attr'>&nbsp;</td>
     <td></td>
-    <td>codigo proveedor de la tabla proveedores</td>
+    <td>id del producto de la tabla productos</td>
 </tr>
 <table id='pedidos'>
 <caption>pedidos</caption>
@@ -461,7 +275,7 @@
     <th>Comment</th>
 </tr>
 <tr>
-    <td>cod_pedido</td>
+    <td>idpedido</td>
     <td>INT(11)</td>
     <td>&#10004;</td>
     <td>&#10004;</td>
@@ -472,32 +286,6 @@
     <td>&#10004;</td>
     <td></td>
     <td>codigo de la tabla pedidos </td>
-</tr>
-<tr>
-    <td>cod_material</td>
-    <td>VARCHAR(200)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>codigo de materiales de la tabla pedidos</td>
-</tr>
-<tr>
-    <td>material_pedido</td>
-    <td>VARCHAR(200)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>materiales pedido de la tabla pedidos</td>
 </tr>
 <tr>
     <td>cantidad_pedido</td>
@@ -536,10 +324,10 @@
     <td>&nbsp;</td>
     <td class='attr'>&nbsp;</td>
     <td></td>
-    <td>id de la tabla usuarios, en la tabla pedidos</td>
+    <td>id de la tabla usuarios</td>
 </tr>
 <tr>
-    <td>proveedores_cod_proveedor</td>
+    <td>proveedores_idproveedor</td>
     <td>INT(11)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
@@ -549,7 +337,20 @@
     <td>&nbsp;</td>
     <td class='attr'>&nbsp;</td>
     <td></td>
-    <td>codigo de la tabla proveedor,  de la tabla pedidos</td>
+    <td>id del proveedor de la tabla proveedores</td>
+</tr>
+<tr>
+    <td>orden_compras_id_orden_compras</td>
+    <td>INT(11)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>id del orden de compras de la tabla orden compras</td>
 </tr>
 <table id='productos'>
 <caption>productos</caption>
@@ -569,22 +370,22 @@
 </tr>
 <tr>
     <td>idproductos</td>
-    <td>INT</td>
+    <td>INT(11)</td>
     <td>&#10004;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
+    <td>&#10004;</td>
     <td></td>
-    <td>id del producto</td>
+    <td>id de la tabla productos</td>
 </tr>
 <tr>
     <td>nombre</td>
     <td>VARCHAR(45)</td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -595,9 +396,9 @@
 </tr>
 <tr>
     <td>precio</td>
-    <td>INT</td>
+    <td>INT(11)</td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -608,9 +409,9 @@
 </tr>
 <tr>
     <td>cantidad</td>
-    <td>INT</td>
+    <td>INT(11)</td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -623,7 +424,7 @@
     <td>descripcion</td>
     <td>VARCHAR(45)</td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -662,7 +463,7 @@
     <th>Comment</th>
 </tr>
 <tr>
-    <td>cod_proveedor</td>
+    <td>idproveedor</td>
     <td>INT(11)</td>
     <td>&#10004;</td>
     <td>&#10004;</td>
@@ -782,8 +583,8 @@
     <th>Comment</th>
 </tr>
 <tr>
-    <td>Idrol</td>
-    <td>INT</td>
+    <td>idrol</td>
+    <td>INT(11)</td>
     <td>&#10004;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
@@ -954,21 +755,8 @@
     <td>fecha ingreso de la tabla usuarios</td>
 </tr>
 <tr>
-    <td>datos_ negocio_codigo</td>
+    <td>rol_idrol</td>
     <td>INT(11)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>codigo de la tabla datos negocio que esta en la tabla usuarios</td>
-</tr>
-<tr>
-    <td>rol_Idrol</td>
-    <td>INT</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
@@ -997,7 +785,7 @@
     <th>Comment</th>
 </tr>
 <tr>
-    <td>cod_ventas</td>
+    <td>idventas</td>
     <td>INT(11)</td>
     <td>&#10004;</td>
     <td>&#10004;</td>
@@ -1010,21 +798,8 @@
     <td>codigo de la tabla ventas</td>
 </tr>
 <tr>
-    <td>Producto</td>
-    <td>VARCHAR(200)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>productos de la tabla ventas</td>
-</tr>
-<tr>
     <td>cantidad</td>
-    <td>INT</td>
+    <td>INT(11)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
@@ -1034,45 +809,6 @@
     <td class='attr'>&nbsp;</td>
     <td></td>
     <td>cantidades de la tabla ventas</td>
-</tr>
-<tr>
-    <td>articulo</td>
-    <td>VARCHAR(100)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>articulos de la tabla ventas</td>
-</tr>
-<tr>
-    <td>precio</td>
-    <td>INT</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>precios de la tabla ventas</td>
-</tr>
-<tr>
-    <td>precio_total</td>
-    <td>INT</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>precios totales de la tabla ventas</td>
 </tr>
 <tr>
     <td>fecha</td>
@@ -1088,8 +824,8 @@
     <td>fecha de la tabla ventas</td>
 </tr>
 <tr>
-    <td>productos_idproductos</td>
-    <td>INT</td>
+    <td>usuarios_id</td>
+    <td>INT(11)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
@@ -1098,11 +834,11 @@
     <td>&nbsp;</td>
     <td class='attr'>&nbsp;</td>
     <td></td>
-    <td>id del producto de la tabla productos</td>
+    <td>id de la tabla usuarios</td>
 </tr>
 <tr>
     <td>clientes_idclientes</td>
-    <td>INT</td>
+    <td>INT(11)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
@@ -1111,7 +847,7 @@
     <td>&nbsp;</td>
     <td class='attr'>&nbsp;</td>
     <td></td>
-    <td>id del cliente de la tabla clientes</td>
+    <td>id de la tabla clientes</td>
 </tr>
 </table>
 </body>
