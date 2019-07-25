@@ -27,7 +27,7 @@ $usuario= new Usuarios();
 	<?php //require_once("head.php");?>
 </head>
 	<body class="pagina_index">		
-		<h1 align="center">SISTEMA DE CONTROL DE INVENTARIO VARIEDADES YEYIS CASTILLO </h1>			    
+		<h1 align="center">SISTEMA DE CONTROL DE INVENTARIO VARIEDADES CASTILLO </h1>			    
 		<div align="center"><img src="public/images/logo sena.gif" height="150"></div>
 		<form method="post" action="">
 		
@@ -41,7 +41,7 @@ $usuario= new Usuarios();
 				</div>
 				<div class="input-group">
 					<input id='pw' name='password' placeholder='CONTRASEÑA' type='password'/>
-					<span id="show-hide-passwd" action="hide" class="input-group-addon glyphicon glyphicon glyphicon-eye-open"></span>
+					<span id="show-hide-passwd" action="hide" class="input-group-addon glyphicon glyphicon glyphicon-eye-close"></span>
 					
 				</div>
 				
