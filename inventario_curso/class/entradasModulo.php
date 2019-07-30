@@ -9,7 +9,7 @@
   	  	 $conectar=parent::conexion();
   	  	 parent::set_names();
 
-  	  	 $sql="select * from orden_compras;";
+  	  	 $sql="select * from productos;";
 
   	  	 $sql=$conectar->prepare($sql);
 
@@ -17,6 +17,23 @@
 
   	  	 return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
   	  }
+	  
+	  //seleccionar el listado de proveedores
+	  public function get_proveedores(){
+
+
+  	  	 $conectar=parent::conexion();
+  	  	 parent::set_names();
+
+  	  	 $sql="select * from proveedores;";
+
+  	  	 $sql=$conectar->prepare($sql);
+
+  	  	 $sql->execute();
+
+  	  	 return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+  	  }
+
 
   	  public function agregar_entrada(){
 
