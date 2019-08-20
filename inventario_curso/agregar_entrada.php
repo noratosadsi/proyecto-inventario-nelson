@@ -49,9 +49,9 @@
     	  	  	  	    <div class="panel-entrada">
 		  	 		 	 <ol class="breadcrumb">
 							  <li><a href="<?php echo Conectar::ruta();?>home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Principal</a></li>
-							  <li><a href="<?php echo Conectar::ruta();?>entradas.php"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Entradas</a></li>
-							  <li><a href="<?php echo Conectar::ruta();?>agregar_entrada.php"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Nueva Entradas</a></li>
-							  <li><a href="<?php echo Conectar::ruta()?>reporte_entrada.php"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Orden de Entrada</a></li>
+							  <li><a href="<?php echo Conectar::ruta();?>entradas.php"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Productos</a></li>
+							  <li><a href="<?php echo Conectar::ruta();?>agregar_entrada.php"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Nuevo Producto</a></li>
+							  <li><a href="<?php echo Conectar::ruta()?>reporte_entrada.php"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Orden de Productos</a></li>
 							 
 						</ol>
 		  	 		 </div>
@@ -82,46 +82,52 @@
 		  	 		 <div class="panel panel-default">
 		  	 		 	  
 		  	 		 	  <div class="panel-heading">
-		  	 		 	  	 <h3 class="panel-title"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar Entrada</h3>
+		  	 		 	  	 <h3 class="panel-title"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar Producto</h3>
 		  	 		 	  </div>
 
 		  	 		 	  <div class="panel-body">
 		  	 		 	  	  
 		  	 		 	  	  <form action="" class="form-horizontal" method="post">
-		  	 		 	  	  	
-                                 <div class="form-group">
+		  	 		 	  	  	<!--
+                                <div class="form-group">
                                  	<label for="" class="col-sm-2 control-label">Código Producto</label>
                                     <div class="col-sm-6">
-                                     <input type="text" name="cod_material" class="form-control" placeholder="codigo producto">
+                                     <input type="text" name="idproducto" class="form-control" placeholder="codigo">
                                     </div>
-                                 </div>
+                                </div>-->
 
-                                    <div class="form-group">
-                                 	<label for="" class="col-sm-2 control-label">Descripción Producto</label>
+                                <div class="form-group">
+                                 	<label for="" class="col-sm-2 control-label">Nombre Producto</label>
                                     <div class="col-sm-6">
-                                     <input type="text" name="material" class="form-control" placeholder="descripcion producto">
+                                     <input type="text" name="nombre" class="form-control" placeholder="nombre">
                                     </div>
-                                 </div>
+                                </div>
 
-                                  <div class="form-group">
+                                <div class="form-group">
                                  	<label for="" class="col-sm-2 control-label">Precio Producto</label>
                                     <div class="col-sm-6">
-                                     <input type="text" name="precio_orden" class="form-control" placeholder="precio producto">
+                                     <input type="number" name="precio" class="form-control" placeholder="precio">
                                     </div>
-                                 </div>
+                                </div>
 
-
-                                  <div class="form-group">
+                                <div class="form-group">
                                  	<label for="" class="col-sm-2 control-label">Cantidad Producto</label>
                                     <div class="col-sm-6">
-                                     <input type="text" name="cantidad" class="form-control" placeholder="cantidad producto">
+                                     <input type="number" name="cantidad" class="form-control" placeholder="cantidad producto">
                                     </div>
-                                 </div>
+                                </div>
+								 
+								<div class="form-group">
+                                 	<label for="" class="col-sm-2 control-label">Descripción</label>
+                                    <div class="col-sm-6">
+                                     <input type="text" name="descripcion" class="form-control" placeholder="descripcion producto">
+                                    </div>
+                                </div>
 
-                                 <div class="form-group">
+                                <div class="form-group">
                                  	<label for="" class="col-sm-2 control-label">Proveedor Producto</label>
                                     <div class="col-sm-6">
-                                       <select name="rif_proveedor" class="form-control" id="">
+                                       <select name="idproveedor" class="form-control" id="" required>
                                        	
                                        	<option value="0">SELECCIONE</option>
 
@@ -130,14 +136,14 @@
                                              for($i=0;$i<sizeof($proveedor);$i++){
                                                  
                                                  ?>
-                                                <option value="<?php echo $proveedor[$i]["rif_proveedor"];?>"><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
+                                                <option value="<?php echo $proveedor[$i]["idproveedor"];?>"><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
                                                  <?php
                                              }
 
                                            ?>
                                        </select>
                                     </div>
-                                 </div>
+                                </div>
 
                                  <input type="hidden" name="grabar" value="si">
 

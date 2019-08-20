@@ -9,7 +9,8 @@
   	  	 $conectar=parent::conexion();
   	  	 parent::set_names();
 
-  	  	 $sql="select * from productos;";
+  	  	 $sql="select * from productos inner join proveedores on productos.proveedores_idproveedor=
+		 proveedores.idproveedor;";
 
   	  	 $sql=$conectar->prepare($sql);
 
@@ -17,48 +18,35 @@
 
   	  	 return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
   	  }
-	  
-	  //seleccionar el listado de proveedores
-	  public function get_proveedores(){
-
-
-  	  	 $conectar=parent::conexion();
-  	  	 parent::set_names();
-
-  	  	 $sql="select * from proveedores;";
-
-  	  	 $sql=$conectar->prepare($sql);
-
-  	  	 $sql->execute();
-
-  	  	 return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
-  	  }
-
 
   	  public function agregar_entrada(){
 
   	  	  $conectar=parent::conexion();
   	  	  parent::set_names();
 
-  	  	  if(empty($_POST["cod_material"]) or empty($_POST["material"]) or empty($_POST["precio_orden"]) or empty($_POST["cantidad"]) or empty($_POST["rif_proveedor"])){
+  	  	  if(empty/*($_POST["idproducto"])or empty*/ ($_POST["nombre"]) or empty($_POST["descripcion"]) or empty($_POST["precio"]) or empty($_POST["cantidad"]) or empty($_POST["idproveedor"])){
              
              header("Location:".Conectar::ruta()."agregar_entrada.php?m=1");
              exit();
   	  	  }
 
-  	  	  $sql="insert into orden_compras
-  	  	  values(null,?,?,?,?,?,now());";
+  	  	/*  $sql="insert into productos (idproductos, nombre, precio, cantidad, descripcion, fecha, usuarios_id, 
+proveedores_idproveedor) values(null,?,?,?,?,?,now(),2,?);";*/
+
+		  $sql="insert into productos values(null,?,?,?,?,now(),2,?);";
 
   	  	  $sql=$conectar->prepare($sql);
 
-  	  	  $sql->bindValue(1,$_POST["cod_material"]);
-  	  	  $sql->bindValue(2,$_POST["material"]);
-  	  	  $sql->bindValue(3,$_POST["precio_orden"]);
-  	  	  $sql->bindValue(4,$_POST["cantidad"]);
-  	  	  $sql->bindValue(5,$_POST["rif_proveedor"]); 
+  	  	  //$sql->bindValue(1,$_POST["idproducto"]);
+		  $sql->bindValue(1,$_POST["nombre"]);
+		  $sql->bindValue(2,$_POST["precio"]);
+		  $sql->bindValue(3,$_POST["cantidad"]);
+  	  	  $sql->bindValue(4,$_POST["descripcion"]);
+  	  	  $sql->bindValue(5,$_POST["idproveedor"]); 
   	  	  $sql->execute();
 
   	  	  $resultado=$sql->fetch(PDO::FETCH_ASSOC);
+		  //var_dump($sql->errorInfo());
 
   	  	  header("Location:".Conectar::ruta()."agregar_entrada.php?m=2");
   	  	  exit();
@@ -69,7 +57,7 @@
   	  	    $conectar=parent::conexion();
   	  	    parent::set_names();
 
-  	  	   $sql="select * from orden_compras where id_orden_compras=?";
+  	  	   $sql="select * from productos where idproductos=?";
 
   	  	   $sql=$conectar->prepare($sql);
 
@@ -85,32 +73,33 @@
 
   	  	   $conectar=parent::conexion();
   	  	   parent::set_names();
+		  
 
-  	  	    if(empty($_POST["cod_material"]) or empty($_POST["material"]) or empty($_POST["precio_orden"]) or empty($_POST["cantidad"]) or empty($_POST["rif_proveedor"])){
+  	  	    if(empty($_POST["idproductos"]) or empty($_POST["nombre"]) or empty($_POST["descripcion"]) or empty($_POST["precio"]) or empty($_POST["cantidad"])){
              
              header("Location:".Conectar::ruta()."editar_entrada.php?id_entrada=".$_POST["id"]."&m=1");
              exit();
   	  	  }
 
-  	  	  $sql="update orden_compras set 
+  	  	  $sql="update productos set 
 
-          cod_material=?,
-          material=?,
-          precio_orden=?,
+          idproductos=?,
+          nombre=?,
+          precio=?,
           cantidad=?,
-          rif_proveedor=?,
-          fecha_ingreso=now()
+          descripcion=?,
+          fecha=now()
           where 
-          id_orden_compras=?
+          idproductos=?
   	  	  ";
 
   	  	  $sql=$conectar->prepare($sql);
 
-  	  	  $sql->bindValue(1,$_POST["cod_material"]);
-  	  	  $sql->bindValue(2,$_POST["material"]);
-  	  	  $sql->bindValue(3,$_POST["precio_orden"]);
+  	  	  $sql->bindValue(1,$_POST["idproductos"]);
+  	  	  $sql->bindValue(2,$_POST["nombre"]);
+  	  	  $sql->bindValue(3,$_POST["precio"]);
   	  	  $sql->bindValue(4,$_POST["cantidad"]);
-  	  	  $sql->bindValue(5,$_POST["rif_proveedor"]);
+  	  	  $sql->bindValue(5,$_POST["descripcion"]);
   	  	  $sql->bindValue(6,$_POST["id"]);
   	  	  $sql->execute();
 

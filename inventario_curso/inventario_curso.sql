@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-07-2019 a las 07:33:34
+-- Tiempo de generación: 19-08-2019 a las 19:37:22
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.3.1
 
@@ -86,8 +86,17 @@ CREATE TABLE `productos` (
   `precio` int(11) NOT NULL COMMENT 'precio del producto',
   `cantidad` int(11) NOT NULL COMMENT 'cantidad del producto',
   `descripcion` varchar(45) NOT NULL COMMENT 'descripcion del producto',
-  `usuarios_id` int(11) NOT NULL COMMENT 'id de la tabla usuarios'
+  `fecha` date NOT NULL COMMENT 'fecha del producto',
+  `usuarios_id` int(11) NOT NULL COMMENT 'id de la tabla usuarios',
+  `proveedores_idproveedor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`idproductos`, `nombre`, `precio`, `cantidad`, `descripcion`, `fecha`, `usuarios_id`, `proveedores_idproveedor`) VALUES
+(1, 'borrador', 500, 10, 'borrador nata', '0000-00-00', 2, 3);
 
 -- --------------------------------------------------------
 
@@ -102,16 +111,15 @@ CREATE TABLE `proveedores` (
   `tlf_proveedor` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'telefono de la tabla proveedor',
   `direc_proveedor` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'direccion de la tabla proveedor',
   `email_proveedor` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'correo de la tabla proveedor',
-  `nom_contacto` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'nombre del contacto de la tabla proveedores',
-  `fecha` date NOT NULL COMMENT 'fecha de la tabla proveedores'
+  `nom_contacto` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'nombre del contacto de la tabla proveedores'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `proveedores`
 --
 
-INSERT INTO `proveedores` (`idproveedor`, `Nit_proveedor`, `nombre_proveedor`, `tlf_proveedor`, `direc_proveedor`, `email_proveedor`, `nom_contacto`, `fecha`) VALUES
-(3, '123', 'nombre', 'telefono', 'direccion', 'prov@prov.com', 'contacto', '2019-07-10');
+INSERT INTO `proveedores` (`idproveedor`, `Nit_proveedor`, `nombre_proveedor`, `tlf_proveedor`, `direc_proveedor`, `email_proveedor`, `nom_contacto`) VALUES
+(3, '123', 'nombre', 'telefono', 'direccion', 'prov@prov.com', 'contacto');
 
 -- --------------------------------------------------------
 
@@ -204,7 +212,8 @@ ALTER TABLE `pedidos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`idproductos`),
-  ADD KEY `fk_productos_usuarios1_idx` (`usuarios_id`);
+  ADD KEY `fk_productos_usuarios1_idx` (`usuarios_id`),
+  ADD KEY `fk_productos_proveedores1_idx` (`proveedores_idproveedor`);
 
 --
 -- Indices de la tabla `proveedores`
@@ -247,7 +256,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `orden_compras`
 --
 ALTER TABLE `orden_compras`
-  MODIFY `id_orden_compras` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la orden de compras de la tabla orden compras', AUTO_INCREMENT=10;
+  MODIFY `id_orden_compras` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la orden de compras de la tabla orden compras';
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
@@ -259,7 +268,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `idproductos` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla productos';
+  MODIFY `idproductos` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla productos', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
@@ -277,7 +286,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `idventas` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla ventas', AUTO_INCREMENT=7;
+  MODIFY `idventas` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla ventas';
 
 --
 -- Restricciones para tablas volcadas
@@ -301,6 +310,7 @@ ALTER TABLE `pedidos`
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
+  ADD CONSTRAINT `fk_productos_proveedores1` FOREIGN KEY (`proveedores_idproveedor`) REFERENCES `proveedores` (`idproveedor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_productos_usuarios1` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --

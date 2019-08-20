@@ -84,7 +84,7 @@ $menu_configuracion = array("configuracion.php", "agregar_configuracion.php", "e
 				<li <?php echo @$active_cliente;?>><a href="<?php echo Conectar::ruta();?>clientes.php" style="color:#FF0000";>VENTAS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-lock"></span></a></li>
 				<li <?php echo @$active_proveedor;?>><a href="<?php echo Conectar::ruta();?>proveedores.php">PROVEEDORES<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
 				<li <?php  echo @$active_entradas; ?>>
-					<a href="<?php echo Conectar::ruta();?>entradas.php" class="" >ENTRADAS <span class=""></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-shopping-cart"></span></a>
+					<a href="<?php echo Conectar::ruta();?>entradas.php" class="" >PRODUCTOS <span class=""></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-shopping-cart"></span></a>
 				<!--	data-toggle="dropdown" dropdowndropdown-toggle<ul class="dropdown-menu forAnimate" role="menu">
 						<li><a href="#">Action</a></li>
 						<li><a href="#">Another action</a></li>

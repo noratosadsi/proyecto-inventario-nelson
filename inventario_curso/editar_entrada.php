@@ -1,5 +1,5 @@
 <?php
-
+	error_reporting(E_ERROR | E_WARNING | E_PARSE);
  require_once("class/config.php");
 
    require_once("class/proveedoresModulo.php");
@@ -12,7 +12,7 @@
 
    $proveedor=$proveedores->get_proveedores();
 
-   $datos=$entrada->get_entrada_por_id($_GET["id_entrada"]);
+   $datos=$entrada->get_entrada_por_id($_GET["idproductos"]);
 
    if(isset($_SESSION["backend_id"])){
 
@@ -53,9 +53,9 @@
     	  	  	  	    <div class="panel-entrada">
 		  	 		 	 <ol class="breadcrumb">
 							  <li><a href="<?php echo Conectar::ruta();?>home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Principal</a></li>
-							  <li><a href="<?php echo Conectar::ruta();?>entradas.php"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Entradas</a></li>
-							  <li><a href="<?php echo Conectar::ruta();?>agregar_entrada.php"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Nueva Entradas</a></li>
-							  <li><a href="<?php echo Conectar::ruta()?>reporte_entrada.php"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Orden de Entrada</a></li>
+							  <li><a href="<?php echo Conectar::ruta();?>entradas.php"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Productos</a></li>
+							  <li><a href="<?php echo Conectar::ruta();?>agregar_entrada.php"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Nuevo Producto</a></li>
+							  <li><a href="<?php echo Conectar::ruta()?>reporte_entrada.php"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Orden de Productos</a></li>
 							 
 						</ol>
 		  	 		 </div>
@@ -86,7 +86,7 @@
 		  	 		 <div class="panel panel-default" bgcolor="red">
 		  	 		 	  
 		  	 		 	  <div class="panel-heading">
-		  	 		 	  	 <h3 class="panel-title"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar Entrada el inventario</h3>
+		  	 		 	  	 <h3 class="panel-title"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar Producto</h3>
 		  	 		 	  </div>
 
 		  	 		 	  <div class="panel-body">
@@ -96,24 +96,30 @@
                                  <div class="form-group">
                                  	<label for="" class="col-sm-2 control-label">Código Producto</label>
                                     <div class="col-sm-6">
-                                     <input type="text" name="cod_material" class="form-control" placeholder="codigo producto" value="<?php echo $datos[0]["cod_material"];?>">
+                                     <input type="text" name="idproductos" class="form-control" placeholder="codigo producto" value="<?php echo $datos[0]["idproductos"];?>">
+                                    </div>
+                                 </div>
+                                    
+                                 <div class="form-group">
+                                 	<label for="" class="col-sm-2 control-label">Nombre Producto</label>
+                                    <div class="col-sm-6">
+                                     <input type="text" name="nombre" class="form-control" placeholder="codigo producto" value="<?php echo $datos[0]["nombre"];?>">
                                     </div>
                                  </div>
 
-                                    <div class="form-group">
+                                 <div class="form-group">
                                  	<label for="" class="col-sm-2 control-label">Descripción Producto</label>
                                     <div class="col-sm-6">
-                                     <input type="text" name="material" class="form-control" placeholder="descripcion producto" value="<?php echo $datos[0]["material"];?>">
+                                     <input type="text" name="descripcion" class="form-control" placeholder="descripcion producto" value="<?php echo $datos[0]["descripcion"];?>">
                                     </div>
                                  </div>
 
-                                  <div class="form-group">
+                                 <div class="form-group">
                                  	<label for="" class="col-sm-2 control-label">Precio Producto</label>
                                     <div class="col-sm-6">
-                                     <input type="text" name="precio_orden" class="form-control" placeholder="precio producto" value="<?php echo $datos[0]["precio_orden"];?>">
+                                     <input type="text" name="precio" class="form-control" placeholder="precio producto" value="<?php echo $datos[0]["precio"];?>">
                                     </div>
                                  </div>
-
 
                                   <div class="form-group">
                                  	<label for="" class="col-sm-2 control-label">Cantidad Producto</label>
@@ -125,7 +131,7 @@
                                  <div class="form-group">
                                  	<label for="" class="col-sm-2 control-label">Proveedor Producto</label>
                                     <div class="col-sm-6">
-                                       <select name="rif_proveedor" class="form-control" id="">
+                                       <select name="idproveedor" class="form-control" id="">
                                        	
                                        	<option value="0">SELECCIONE</option>
 
@@ -134,15 +140,15 @@
                                              for($i=0;$i<sizeof($proveedor);$i++){
 
 
-                                        if($datos[0]["rif_proveedor"]==$proveedor[$i]["rif_proveedor"]){
+                                        if($datos[0]["proveedores_idproveedor"]==$proveedor[$i]["idproveedor"]){
                                                  
                                                  ?>
-                                                <option value="<?php echo $proveedor[$i]["rif_proveedor"];?>" selected="selected"><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
+                                                <option value="<?php echo $proveedor[$i]["idproveedor"];?>" selected="selected"><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
                                                  <?php
                                           } else{
 
                                              ?>
-                                                <option value="<?php echo $proveedor[$i]["rif_proveedor"];?>" ><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
+                                                <option value="<?php echo $proveedor[$i]["idproveedor"];?>" ><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
                                                  <?php 
                                           }
 
@@ -156,7 +162,7 @@
 
                                  <input type="hidden" name="grabar" value="si">
 
-                                 <input type="hidden" name="id" value="<?php echo $_GET["id_entrada"];?>">
+                                 <input type="hidden" name="id" value="<?php echo $_GET["idproductos"];?>">
 
                                  <button type="submit" class="btn btn-default col-sm-offset-2">REGISTRAR</button>
 
