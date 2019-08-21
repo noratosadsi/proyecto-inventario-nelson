@@ -28,13 +28,13 @@
 		  <div class="container-fluid">
 		  	<div class="row">
 		  		
-		  		<div class="col-sm-3">
+		  		<div class="col-sm-1">
 
 		  			<?php require_once("menu_lateral.php");?>
 		  			
 		  		</div>
 
-		  		<div class="col-sm-8">
+		  		<div class="col-sm-11">
 
 		  			<div class="panel-proveedor">
 		  				 <ol class="breadcrumb">
@@ -73,7 +73,7 @@
                                 	<?php for($i=0;$i<sizeof($datos);$i++){?>
                                 	
                                 	<tr>
-                                		<td><?php echo $datos[$i]["rif_proveedor"];?></td>
+                                		<td><?php echo $datos[$i]["idproveedor"];?></td>
                                 		<td><?php echo $datos[$i]["nombre_proveedor"];?></td>
                                 		<td><?php echo $datos[$i]["tlf_proveedor"];?></td>
                                 		<td><?php echo $datos[$i]["direc_proveedor"];?></td>

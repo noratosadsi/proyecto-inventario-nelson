@@ -104,8 +104,8 @@ proveedores_idproveedor) values(null,?,?,?,?,?,now(),2,?);";*/
   	  	  $sql->execute();
 
   	  	  $resultado=$sql->fetch(PDO::FETCH_ASSOC);
-
-  	  	  header("Location:".Conectar::ruta()."editar_entrada.php?id_entrada=".$_POST["id"]."&m=2");
+//importante
+  	  	  header("Location:".Conectar::ruta()."editar_entrada.php?idproductos=".$_POST["id"]."&m=2");
   	  	  exit();
   	  }
 
@@ -114,7 +114,7 @@ proveedores_idproveedor) values(null,?,?,?,?,?,now(),2,?);";*/
           $conectar=parent::conexion();
           parent::set_names();
 
-          $sql="delete from orden_compras where id_orden_compras=?";
+          $sql="delete from productos where idproductos=?";
 
           $sql=$conectar->prepare($sql);
 
@@ -142,11 +142,12 @@ proveedores_idproveedor) values(null,?,?,?,?,?,now(),2,?);";*/
         $fecha_desde= ($ano."-".$mes."-".$dia);
         $fecha_hasta= ($ano1."-".$mes1."-".$dia1);
 
-        $sql="select * from orden_compras where rif_proveedor=? and fecha_ingreso>=? and fecha_ingreso<=?;";
+        $sql="select * from productos inner join proveedores on productos.proveedores_idproveedor=
+		 proveedores.idproveedor where idproveedor=? and fecha>=? and fecha<=?;";
     
         $sql=$conectar->prepare($sql);
 
-        $sql->bindValue(1,$_POST["rif_proveedor"]);
+        $sql->bindValue(1,$_POST["idproveedor"]);
         $sql->bindValue(2,$fecha_desde);
         $sql->bindValue(3,$fecha_hasta);
         $sql->execute();
@@ -171,12 +172,12 @@ proveedores_idproveedor) values(null,?,?,?,?,?,now(),2,?);";*/
         $fecha_desde= ($ano."-".$mes."-".$dia);
         $fecha_hasta= ($ano1."-".$mes1."-".$dia1);
 
-        $sql="select sum(cantidad) as total from orden_compras where rif_proveedor=? and fecha_ingreso >=? and fecha_ingreso <=?;";
+        $sql="select sum(cantidad) as total from productos where proveedores_idproveedor=? and fecha >=? and fecha <=?;";
 
     
         $sql=$conectar->prepare($sql);
 
-        $sql->bindValue(1,$_POST["rif_proveedor"]);
+        $sql->bindValue(1,$_POST["idproveedor"]);
         $sql->bindValue(2,$fecha_desde);
         $sql->bindValue(3,$fecha_hasta);
         $sql->execute();

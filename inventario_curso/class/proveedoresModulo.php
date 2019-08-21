@@ -8,8 +8,8 @@
  	  	  $conectar=parent::conexion();
  	  	  parent::set_names();
 
- 	  	  $sql="select * from proveedores;";
-
+ 	  	  $sql="select * from proveedores inner join productos on proveedores.idproveedor=productos.proveedores_idproveedor;";
+		  
  	  	  $sql=$conectar->prepare($sql);
 
  	  	  $sql->execute();
@@ -29,7 +29,7 @@
  	  	}
 
  	  	$sql="insert into proveedores 
- 	  	values(null,?,?,?,?,?,?,now());";
+ 	  	values(null,?,?,?,?,?,?);";
 
  	  	$sql=$conectar->prepare($sql);
 
@@ -42,8 +42,8 @@
         $sql->execute();
 
         $resultado=$sql->fetch(PDO::FETCH_ASSOC);
-
-        header("Location:".Conectar::ruta()."agregar_proveedor.php?m=2");
+		var_dump($sql->errorInfo());
+        //header("Location:".Conectar::ruta()."agregar_proveedor.php?m=2");
         exit();
  	  }
 
@@ -242,11 +242,11 @@
         $conectar=parent::conexion();
         parent::set_names();
 
-        $sql="select * from proveedores where rif_proveedor=?";
+        $sql="select * from proveedores where idproveedor=?";
 
         $sql=$conectar->prepare($sql);
 
-        $sql->bindValue(1,$_POST["rif_proveedor"]);
+        $sql->bindValue(1,$_POST["idproveedor"]);
 
         $sql->execute();
 

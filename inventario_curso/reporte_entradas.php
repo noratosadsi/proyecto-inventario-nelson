@@ -25,7 +25,7 @@ $orden_compra=$entradas->get_orden_compras_por_fecha();
 $total_productos=$entradas->get_cant_productos_por_fecha();
 
 
-ob_start(); 
+//ob_start(); 
 
    
 ?>
@@ -50,17 +50,17 @@ ob_start();
 </head>
 <table style="width: 100%;" class="header">
 <tr>
-<td width="54%" height="111"><h1 style="text-align: left; margin-right:20px;"><img src="public/images/logo_vertical.jpg" width="340" height="109"  /></h1></td>
+<td width="54%" height="111"><h1 style="text-align: left; margin-right:20px;"><img src="public/images/logo sena sistema.png" width="340" height="109"  /></h1></td>
 <td width="46%"><table style="width: 100%; font-size: 8pt;">
-  <tr>
-    <td><strong>RIF EMPRESA: </strong> <?php echo $datos_empresa[0]["rif_empresa"]; ?></td>
+ <!-- <tr>
+    <td><strong>RIF EMPRESA: </strong> <?php //echo $datos_empresa[0]["rif_empresa"]; ?></td>
   </tr>
   <tr>
-    <td><strong>EMPRESA: </strong> <?php echo $datos_empresa[0]["nom_empresa"]; ?></td>
+    <td><strong>EMPRESA: </strong> <?php //echo $datos_empresa[0]["nom_empresa"]; ?></td>
   </tr>
   <tr>
     <td width="43%"><strong>VENDEDOR</strong></td>
-  </tr>
+  </tr>-->
   <tr>
     <td><strong>RIF/CEDULA: </strong><?php echo $_SESSION["cedula"]; ?></td>
   </tr>
@@ -93,7 +93,7 @@ ob_start();
 
 
 <tr class="even_row">
-<td><div align="center"><span class=""><?php echo $datos["rif_proveedor"];?></span></div></td>
+<td><div align="center"><span class=""><?php echo $datos["Nit_proveedor"];?></span></div></td>
 <td style="text-align: center"><div align="center"><span class=""><?php echo $datos["nombre_proveedor"];?></span></div></td>
 <td style="text-align: center"><div align="center"><span class=""><?php echo $datos["tlf_proveedor"];?></span></div></td>
 <td style="text-align: right"><div align="center"><span class=""><?php echo $datos["direc_proveedor"];?></span></div></td>
@@ -125,17 +125,17 @@ ob_start();
 
          for($i=0;$i<sizeof($orden_compra);$i++){
 
-          $decision=$orden_compra[$i]["precio_orden"] * $orden_compra[$i]["cantidad"];
+          $decision=$orden_compra[$i]["precio"] * $orden_compra[$i]["cantidad"];
 
           $pagoTotal= $pagoTotal + $decision;
          ?>
     <tr class="even_row">
-      <td style="text-align: center"><span class=""><?php echo $orden_compra[$i]["cod_material"];?></span></td>
-      <td style="text-align: center"><span class=""><?php echo $orden_compra[$i]["material"];?></span></td>
-       <td style="text-align: center"><span class=""><?php echo $orden_compra[$i]["precio_orden"];?></span></td>
+      <td style="text-align: center"><span class=""><?php echo $orden_compra[$i]["idproductos"];?></span></td>
+      <td style="text-align: center"><span class=""><?php echo $orden_compra[$i]["descripcion"];?></span></td>
+       <td style="text-align: center"><span class=""><?php echo $orden_compra[$i]["precio"];?></span></td>
       <td style="text-align: center"><span class=""><?php echo $orden_compra[$i]["cantidad"];?></span></td>
-      <td style="text-align: center"><span class=""><?php echo $orden_compra[$i]["cantidad"] * $orden_compra[$i]["precio_orden"];?></span></td>
-      <td style="text-align: center"><span class=""><?php echo $fecha=date("d-m-Y",strtotime($orden_compra[$i]["fecha_ingreso"])); ?></span></td>
+      <td style="text-align: center"><span class=""><?php echo $orden_compra[$i]["cantidad"] * $orden_compra[$i]["precio"];?></span></td>
+      <td style="text-align: center"><span class=""><?php echo $fecha=date("d-m-Y",strtotime($orden_compra[$i]["fecha"])); ?></span></td>
 
     </tr>
 
@@ -161,7 +161,7 @@ ob_start();
         echo $pagoTotal;
 
       ?>
-      BS.</strong>
+      $.</strong>
       </div>
     </td>
   </tr>
@@ -209,7 +209,7 @@ ob_start();
 
 
   <?php
-  
+/*  
   $salida_html = ob_get_contents();
   ob_end_clean(); 
 
@@ -218,7 +218,7 @@ ob_start();
     $dompdf->load_html($salida_html);
     $dompdf->render();
     $dompdf->stream("Listado de Clientes.pdf", array('Attachment'=>'0'));
-
+*/
 
   } else{
 

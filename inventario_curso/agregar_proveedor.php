@@ -85,9 +85,9 @@
 		  				 	  	  
 		  				 	  	  <div class="form-group">
 		  				 	  	  	
-		  				 	  	  	<label for="" class="control-label col-sm-2">Rif Proveedor</label>
+		  				 	  	  	<label for="" class="control-label col-sm-2">Nit Proveedor</label>
 		  				 	  	  	<div class="col-sm-6">
-		  				 	  	  		<input type="text" name="rif_proveedor" class="form-control" placeholder="rif proveedor">
+		  				 	  	  		<input type="text" name="rif_proveedor" class="form-control" placeholder="nit proveedor">
 		  				 	  	  	</div>
 		  				 	  	  </div>
 

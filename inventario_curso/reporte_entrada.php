@@ -39,9 +39,9 @@
 		 	   <div class="panel-entrada">
 		  	 		 	 <ol class="breadcrumb">
 							  <li><a href="<?php echo Conectar::ruta();?>home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Principal</a></li>
-							  <li><a href="<?php echo Conectar::ruta();?>entradas.php"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Entradas</a></li>
-							  <li><a href="<?php echo Conectar::ruta();?>agregar_entrada.php"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Nueva Entradas</a></li>
-							  <li><a href="<?php echo Conectar::ruta()?>reporte_entrada.php"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Orden de Entrada</a></li>
+							  <li><a href="<?php echo Conectar::ruta();?>entradas.php"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Productos</a></li>
+							  <li><a href="<?php echo Conectar::ruta();?>agregar_entrada.php"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Nuevo Producto</a></li>
+							  <li><a href="<?php echo Conectar::ruta()?>reporte_entrada.php"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Orden de Productos</a></li>
 							 
 						</ol>
 		  	 		 </div>
@@ -233,14 +233,14 @@
 		  				 	 		
 		  				 	 		<label for="" class="col-sm-2 control-label">Proveedor</label>
 		  				 	 	    <div class="col-sm-6">
-		  				 	 	    	<select name="rif_proveedor" class="form-control">
+		  				 	 	    	<select name="idproveedor" class="form-control">
 		  				 	 	    		
 		  				 	 	    		<option value="0">SELECCIONE</option>
                                             
                                             <?php for($i=0;$i<sizeof($proveedor);$i++){
                                               
                                               ?>
-                                                <option value="<?php echo $proveedor[$i]["rif_proveedor"];?>"><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
+                                                <option value="<?php echo $proveedor[$i]["idproveedor"];?>"><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
                                               <?php
 
                                             }?>

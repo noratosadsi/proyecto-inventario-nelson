@@ -8,7 +8,7 @@
 
    	  $entrada= new Entradas();
 
-   	  $entrada->eliminar_entrada($_GET["id_entrada"]);
+   	  $entrada->eliminar_entrada($_GET["idproductos"]);
 
    	  header("Location:".Conectar::ruta()."entradas.php");
       exit();
