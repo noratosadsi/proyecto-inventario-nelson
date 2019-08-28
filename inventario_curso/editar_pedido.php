@@ -11,12 +11,18 @@
   	$datos=$pedido->get_pedido_por_id($_GET["id_pedido"]);
 
     $proveedor=$pedido->get_proveedores();
-
-    if(isset($_POST["grabar"]) and $_POST["grabar"]=="si"){
+	
+	if(isset($_POST["grabar"]) and $_POST["grabar"]=="si"){
        
        $pedido->editar_pedido();
        exit();
     }
+	require_once("class/entradasModulo.php");
+	$productos=new Entradas;
+	$producto=$productos->get_entradas();
+	
+  
+	
 
 ?>
 <!DOCTYPE html>
@@ -36,13 +42,13 @@
 	 	   	  
 	 	   	  <div class="row">
 	 	   	  	  
-	 	   	  	  <div class="col-sm-3">
+	 	   	  	  <div class="col-sm-1">
 
 	 	   	  	  	<?php require_once("menu_lateral.php");?>
 	 	   	  	  	
 	 	   	  	  </div>
 
-	 	   	  	  <div class="col-sm-8">
+	 	   	  	  <div class="col-sm-11">
 
 	 	   	  	  	<div class="panel-pedido">
 		  				 <ol class="breadcrumb">
@@ -85,20 +91,66 @@
 		  				 <div class="panel-body">
 		  				 	  
 		  				 	  <form action="" class="form-horizontal" method="post">
+								  
+								 
 		  				 	  	
 		  				 	  	  <div class="form-group">
-		  				 	  	  	 <label for="" class="col-sm-2 control-label">Código Producto</label>
+		  				 	  	  	 <label for="" class="col-sm-2 control-label">Pedido Producto</label>
 		  				 	  	     
 		  				 	  	     <div class="col-sm-6">
-		  				 	  	     	<input type="text" name="cod_material" class="form-control" placeholder="codigo producto" value="<?php echo $datos[0]["cod_material"];?>">
+										 
+										  <script>
+ 
+									/**
+									* Función que recibe el objeto seleccionado
+									*
+									* objeto.value contiene el value del elemento seleccionado
+									* objeto[value].innerHTML contiene el texto del valor seleccionado
+									*/
+									function mostrar(objeto)
+									{
+										if(objeto.value==0)
+										{
+											document.getElementById("idSeleccionado").value="";
+											document.getElementById("textoSeleccionado").value="";
+										}else{
+												document.getElementById("idSeleccionado").value=objeto.value;
+												document.getElementById("textoSeleccionado").value=objeto[objeto.value].innerHTML;
+											}
+									}
+									</script>
+										 
+										<select name="cod_material" class="form-control" onchange="mostrar(this)">
+											 
+		  				 	  	     	 	<?php
+												for($i=0; $i<sizeof($producto);$i++){
+													if($datos[0]["idproductos"]==$proveedor[$i]["idproductos"]){
+																			
+											?>
+										<option value="<?php echo $producto[$i]["idproductos"];?>" selected="selected"><?php echo $producto[$i]["nombre"];?></option>
+                      
+											<?php
+                                                
+												} else { 
+                                                 
+											?>
+										<option value="<?php echo $producto[$i]["idproductos"];?>"><?php echo $producto[$i]["nombre"];?></option>
+                    
+											<?php
+
+												}
+
+												}
+											?>
+		  				 	  	     	</select>
 		  				 	  	     </div>
 		  				 	  	  </div>
-
-		  				 	  	   <div class="form-group">
+							
+		  				 	  	  <div class="form-group">
 		  				 	  	  	 <label for="" class="col-sm-2 control-label">Descripción Producto</label>
 		  				 	  	     
 		  				 	  	     <div class="col-sm-6">
-		  				 	  	     	<input type="text" name="material_pedido" class="form-control" placeholder="descripcion producto" value="<?php echo $datos[0]["material_pedido"];?>">
+		  				 	  	     	<input type="text" name="material_pedido" class="form-control" placeholder="descripcion producto" value="<?php echo $datos[0]["descripcion_pedido"];?>">
 		  				 	  	     </div>
 		  				 	  	  </div>
 
@@ -115,7 +167,7 @@
 		  				 	  	     
 		  				 	  	     <div class="col-sm-6">
 		  				 	  	     	 
-		  				 	  	     <select name="producto" class="form-control">
+		  				 	  	     <select name="proveedor" class="form-control">
 		  				 	  	     	 	
 		  				 	  	     	
 
@@ -123,17 +175,17 @@
                                    for($i=0; $i<sizeof($proveedor);$i++){
 
 
-           if($datos[0]["rif_proveedor"]==$proveedor[$i]["rif_proveedor"]){
+           if($datos[0]["idproveedor"]==$proveedor[$i]["idproveedor"]){
                                                     
                         ?>
-    <option value="<?php echo $proveedor[$i]["rif_proveedor"];?>" selected="selected"><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
+    <option value="<?php echo $proveedor[$i]["idproveedor"];?>" selected="selected"><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
                       
                       <?php
                                                 
                      } else { 
                                                  
                      ?>
-                   <option value="<?php echo $proveedor[$i]["rif_proveedor"];?>"><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
+                   <option value="<?php echo $proveedor[$i]["idproveedor"];?>"><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
                     
                      <?php
 

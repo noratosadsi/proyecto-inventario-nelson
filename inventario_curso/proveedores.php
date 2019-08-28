@@ -59,11 +59,10 @@
 
 		  					   <thead>
 		  					 	 <tr>
-			  					 	  <th>Cédula</th>
+			  					 	  <th>Id proveedor</th>
 			  					 	  <th>Nombres</th>
 			  					 	  <th>Teléfono</th>
 			  					 	  <th>Dirección</th>
-			  					 	  <th>Fecha</th>
 			  					 	  <th>Acciones</th>
 		  					 	 </tr>
                                 </thead>
@@ -77,8 +76,12 @@
                                 		<td><?php echo $datos[$i]["nombre_proveedor"];?></td>
                                 		<td><?php echo $datos[$i]["tlf_proveedor"];?></td>
                                 		<td><?php echo $datos[$i]["direc_proveedor"];?></td>
-                                		<td><?php echo $datos[$i]["fecha"];?></td>
-                                		<td><a class="btn btn-success" href="<?php echo Conectar::ruta();?>editar_proveedor.php?id_proveedor=<?php echo $datos[$i]["cod_proveedor"];?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar</a> <a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_proveedor.php?id_proveedor=<?php echo $datos[$i]["cod_proveedor"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></td>
+                                		<td><a class="btn btn-success" href="<?php echo Conectar::ruta();?>editar_proveedor.php?id_proveedor=<?php echo $datos[$i]["idproveedor"];?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar</a>
+											
+											
+											<a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_proveedor.php?id_proveedor=<?php echo $datos[$i]["idproveedor"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a>
+																					
+										</td>
                                 	</tr>
 
                                 	<?php }?>

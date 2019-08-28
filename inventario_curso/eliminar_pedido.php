@@ -11,6 +11,7 @@
        $pedido->eliminar_pedido($_GET["id_pedido"]);
 
        header("Location:".Conectar::ruta()."pedidos.php");
+       
        exit();
    
    } else {

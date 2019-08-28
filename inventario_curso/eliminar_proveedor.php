@@ -11,7 +11,8 @@
     $proveedor->eliminar_proveedor($_GET["id_proveedor"]);
 
     header("Location:".Conectar::ruta()."proveedores.php");
-    exit();
+    
+	exit();
   
   } else {
 

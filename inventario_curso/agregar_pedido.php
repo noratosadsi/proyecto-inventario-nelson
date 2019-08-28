@@ -9,10 +9,18 @@
   	$pedido=new Proveedores();
 
     $proveedor=$pedido->get_proveedores();
+	
+	//ver los productos
+	
+	require_once("class/entradasModulo.php");
+	$productos=new Entradas();
+	$producto=$productos->get_entradas();
 
     if(isset($_POST["grabar"]) and $_POST["grabar"]=="si"){
        
-       $pedido->agregar_pedido();
+	  $pedido->agregar_orden();
+	  //$pedido->get_orden();
+      $pedido->agregar_pedido();
        exit();
     }
 
@@ -34,13 +42,13 @@
 	 	   	  
 	 	   	  <div class="row">
 	 	   	  	  
-	 	   	  	  <div class="col-sm-3">
+	 	   	  	  <div class="col-sm-1">
 
 	 	   	  	  	<?php require_once("menu_lateral.php");?>
 	 	   	  	  	
 	 	   	  	  </div>
 
-	 	   	  	  <div class="col-sm-8">
+	 	   	  	  <div class="col-sm-11">
 
 	 	   	  	  	<div class="panel-pedido">
 		  				 <ol class="breadcrumb">
@@ -83,33 +91,18 @@
 		  				 <div class="panel-body">
 		  				 	  
 		  				 	  <form action="" class="form-horizontal" method="post">
-		  				 	  	
+		  				 	  	<!-- Ingresaba cualquier producto sin estar registrado en la tabla productos
 		  				 	  	  <div class="form-group">
-		  				 	  	  	 <label for="" class="col-sm-2 control-label">Código Producto</label>
+		  				 	  	  	 <label for="" class="col-sm-2 control-label">Producto</label>
 		  				 	  	     
 		  				 	  	     <div class="col-sm-6">
-		  				 	  	     	<input type="text" name="cod_material" class="form-control" placeholder="codigo producto">
+		  				 	  	     	<input type="text" name="pedido_producto" class="form-control" placeholder="pedido producto">
 		  				 	  	     </div>
 		  				 	  	  </div>
+								-->
 
-		  				 	  	   <div class="form-group">
-		  				 	  	  	 <label for="" class="col-sm-2 control-label">Descripción Producto</label>
-		  				 	  	     
-		  				 	  	     <div class="col-sm-6">
-		  				 	  	     	<input type="text" name="material_pedido" class="form-control" placeholder="descripcion producto">
-		  				 	  	     </div>
-		  				 	  	  </div>
-
-		  				 	  	   <div class="form-group">
-		  				 	  	  	 <label for="" class="col-sm-2 control-label">Cantidad Producto</label>
-		  				 	  	     
-		  				 	  	     <div class="col-sm-6">
-		  				 	  	     	<input type="text" name="cantidad_pedido" class="form-control" placeholder="cantidad producto">
-		  				 	  	     </div>
-		  				 	  	  </div>
-
-		  				 	  	  <div class="form-group">
-		  				 	  	  	 <label for="" class="col-sm-2 control-label">Proveedor Producto</label>
+								 <div class="form-group">
+		  				 	  	  	 <label for="" class="col-sm-2 control-label">PRODUCTO</label>
 		  				 	  	     
 		  				 	  	     <div class="col-sm-6">
 		  				 	  	     	 
@@ -118,10 +111,58 @@
 		  				 	  	     	 	<option value="0">SELECCIONE</option>
 
 		  				 	  	     	 	 <?php
+                                                for($i=0; $i<sizeof($producto);$i++){
+                                                    
+                                                    ?>
+                                                     <option value="<?php echo $producto[$i]["idproductos"];?>"><?php echo $producto[$i]["nombre"];?></option>
+                                                    <?php
+                                                }
+		  				 	  	     	 	 ?>
+		  				 	  	     	 </select>
+		  				 	  	     </div>
+		  				 	  	  </div>
+
+		  				 	  	  <div class="form-group">
+		  				 	  	  	 <label for="" class="col-sm-2 control-label">Descripción Producto</label>
+		  				 	  	     
+		  				 	  	     <div class="col-sm-6">
+		  				 	  	     	<input type="text" name="pedido_descripcion" class="form-control" placeholder="descripcion pedido">
+		  				 	  	     </div>
+		  				 	  	  </div>
+
+		  				 	  	   <div class="form-group">
+		  				 	  	  	 <label for="" class="col-sm-2 control-label">Cantidad Pedido</label>
+		  				 	  	     
+		  				 	  	     <div class="col-sm-6">
+		  				 	  	     	<input type="text" name="cantidad_pedido" class="form-control" placeholder="cantidad producto">
+		  				 	  	     </div>
+		  				 	  	  </div>
+								  
+								  <div class="form-group">
+		  				 	  	  	 <label for="" class="col-sm-2 control-label">PRECIO</label>
+		  				 	  	     
+		  				 	  	     <div class="col-sm-6">
+		  				 	  	     	<input type="text" name="precio_pedido" class="form-control" placeholder="cantidad producto">
+		  				 	  	     </div>
+		  				 	  	  </div>
+								  
+								 
+								  
+
+		  				 	  	  <div class="form-group">
+		  				 	  	  	 <label for="" class="col-sm-2 control-label">Proveedor Producto</label>
+		  				 	  	     
+		  				 	  	     <div class="col-sm-6">
+		  				 	  	     	 
+		  				 	  	     	 <select name="proveedor" class="form-control" >
+		  				 	  	     	 	
+		  				 	  	     	 	<option value="0">SELECCIONE</option>
+
+		  				 	  	     	 	 <?php
                                                 for($i=0; $i<sizeof($proveedor);$i++){
                                                     
                                                     ?>
-                                                     <option value="<?php echo $proveedor[$i]["rif_proveedor"];?>"><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
+                                                     <option value="<?php echo $proveedor[$i]["idproveedor"];?>"><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
                                                     <?php
                                                 }
 		  				 	  	     	 	 ?>

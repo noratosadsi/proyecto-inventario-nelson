@@ -29,12 +29,12 @@
 		  	  
 		  	  <div class="row">
 		  	  	  
-		  	  	  <div class="col-sm-3">
+		  	  	  <div class="col-sm-1">
 		  	  	  	  
 		  	  	  	  <?php require_once("menu_lateral.php");?>
 		  	  	  </div>
 
-		  	  	  <div class="col-sm-8">
+		  	  	  <div class="col-sm-11">
 
 		  	  	  	<div class="panel-pedido">
 		  				 <ol class="breadcrumb">
@@ -64,9 +64,10 @@
                          	  	  	<tr>
                          	  	  		<th>Código</th>
                          	  	  		<th>Producto</th>
+                         	  	  		<th>Descripción</th>
                          	  	  		<th>Cantidad</th>
                          	  	  		<th>Fecha</th>
-                         	  	  		<th>Rif-proveedor</th>
+                         	  	  		<th>Nit-proveedor</th>
                          	  	  		<th>Acciones</th>
                          	  	  	</tr>
                          	  	  </thead>
@@ -74,12 +75,13 @@
                          	  	  <tbody>
                          	  	  	<?php for($i=0;$i<sizeof($datos);$i++) {?>
                          	  	  	  <tr>
-                         	  	  	  	<td><?php echo $datos[$i]["cod_material"];?></td>
-                         	  	  	  	<td><?php echo $datos[$i]["material_pedido"];?></td>
+                         	  	  	  	<td><?php echo $datos[$i]["idpedido"];?></td>
+                         	  	  	  	<td><?php echo $datos[$i]["producto_pedido"];?></td>
+                         	  	  	  	<td><?php echo $datos[$i]["descripcion_pedido"];?></td>
                          	  	  	  	<td><?php echo $datos[$i]["cantidad_pedido"];?></td>
                          	  	  	  	<td><?php echo Conectar::invierte_fecha($datos[$i]["fecha_pedido"]);?></td>
-                         	  	  	  	<td><?php echo $datos[$i]["rif_proveedor"];?></td>
-                         	  	  	  	<td><a class="btn btn-success" href="<?php echo Conectar::ruta()?>editar_pedido.php?id_pedido=<?php echo $datos[$i]["cod_pedido"];?>"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar</a> <a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_pedido.php?id_pedido=<?php echo $datos[$i]["cod_pedido"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></td>
+                         	  	  	  	<td><?php echo $datos[$i]["Nit_proveedor"];?></td>
+                         	  	  	  	<td><a class="btn btn-success" href="<?php echo Conectar::ruta()?>editar_pedido.php?id_pedido=<?php echo $datos[$i]["idpedido"];?>"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar</a> <a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_pedido.php?id_pedido=<?php echo $datos[$i]["idpedido"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></td>
                          	  	  	  </tr>
 
                          	  	  	  <?php }?>
