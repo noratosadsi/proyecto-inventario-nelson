@@ -149,8 +149,8 @@
 								<select name="nivel" class="form-control" id="">
 
 									<option value="0">SELECCIONE</option>
-									<option value="ADMINISTRADOR" <?php if($datos[0]["nivel"]=='ADMINISTRADOR'){echo "selected='selected'";}?>>ADMINISTRADOR</option>
-									<option value="ASISTENTE" <?php if($datos[0]["nivel"]=='ASISTENTE'){echo "selected='selected'";}?>>ASISTENTE</option>
+									<option value="1" <?php if($datos[0]["rol_idrol"]=='1'){echo "selected='selected'";}?>>ADMINISTRADOR</option>
+									<option value="2" <?php if($datos[0]["rol_idrol"]=='2'){echo "selected='selected'";}?>>USUARIO</option>
 									
 								</select>
 							</div>

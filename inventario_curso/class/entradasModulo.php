@@ -33,7 +33,7 @@
   	  	/*  $sql="insert into productos (idproductos, nombre, precio, cantidad, descripcion, fecha, usuarios_id, 
 proveedores_idproveedor) values(null,?,?,?,?,?,now(),2,?);";*/
 
-		  $sql="insert into productos values(null,?,?,?,?,now(),2,?);";
+		  $sql="insert into productos values(null,?,?,?,?,now(),?,?);";
 
   	  	  $sql=$conectar->prepare($sql);
 
@@ -42,7 +42,8 @@ proveedores_idproveedor) values(null,?,?,?,?,?,now(),2,?);";*/
 		  $sql->bindValue(2,$_POST["precio"]);
 		  $sql->bindValue(3,$_POST["cantidad"]);
   	  	  $sql->bindValue(4,$_POST["descripcion"]);
-  	  	  $sql->bindValue(5,$_POST["idproveedor"]); 
+  	  	  $sql->bindValue(5,$_SESSION["backend_id"]); 
+  	  	  $sql->bindValue(6,$_POST["idproveedor"]); 
   	  	  $sql->execute();
 
   	  	  $resultado=$sql->fetch(PDO::FETCH_ASSOC);

@@ -98,7 +98,15 @@ $menu_configuracion = array("configuracion.php", "agregar_configuracion.php", "e
 				</li>
 				<li <?php if($archivo1=="almacen.php"){ echo "class=\"active\"";};?>><a href="<?php echo Conectar::ruta();?>almacen.php" style="color:#FF0000";>ALMACEN<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a></li>
 				<li <?php if($archivo1=="ventas.php"){ echo "class=\"active\"";};?>><a href="<?php echo Conectar::ruta();?>ventas.php" style="color:#FF0000";>VENTAS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-lock"></span></a></li>
+
+				<?php 
+				//muestra la opción de usuarios si es administrador
+
+				if ($_SESSION["rol"]==1){
+				?>
 				<li <?php echo @$active_usuarios; ?>><a href="usuarios.php">USUARIOS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<?php } ?>
+
 				<li <?php if($archivo1=="basedatos.php"){ echo "class=\"active\"";};?>><a href="<?php echo Conectar::ruta();?>basedatos.php" style="color:#FF0000";>BASE DATOS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a></li>
 				<li <?php echo @$active_configuracion; ?>><a href="<?php echo Conectar::ruta();?>configuracion.php" style="color:#FF0000";>CONFIGURACION<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-wrench"></span></a></li>
 				<li class=""><a href="logout.php">CERRAR SESION<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></span></a></li>

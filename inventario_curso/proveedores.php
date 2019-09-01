@@ -63,7 +63,13 @@
 			  					 	  <th>Nombres</th>
 			  					 	  <th>Teléfono</th>
 			  					 	  <th>Dirección</th>
+
+									  <?php 
+										//muestra la opción de editar y eliminar proveedores si es administrador
+
+										if ($_SESSION["rol"]==1){?>
 			  					 	  <th>Acciones</th>
+									  <?php }?>
 		  					 	 </tr>
                                 </thead>
 
@@ -76,10 +82,17 @@
                                 		<td><?php echo $datos[$i]["nombre_proveedor"];?></td>
                                 		<td><?php echo $datos[$i]["tlf_proveedor"];?></td>
                                 		<td><?php echo $datos[$i]["direc_proveedor"];?></td>
+
+										<?php 
+										//muestra la opción de editar y eliminar proveedores si es administrador
+
+										if ($_SESSION["rol"]==1){?>
                                 		<td><a class="btn btn-success" href="<?php echo Conectar::ruta();?>editar_proveedor.php?id_proveedor=<?php echo $datos[$i]["idproveedor"];?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar</a>
 											
 											
 											<a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_proveedor.php?id_proveedor=<?php echo $datos[$i]["idproveedor"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a>
+
+										<?php }?>
 																					
 										</td>
                                 	</tr>

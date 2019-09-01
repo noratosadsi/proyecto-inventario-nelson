@@ -242,17 +242,18 @@
 		
 		
 		$sql="insert into pedidos
-        values(null,?,now(),2,?,?,?,?);";
+        values(null,?,now(),?,?,?,?,?);";
 		
 		
 		
         $sql=$conectar->prepare($sql);
 
         $sql->bindValue(1, $_POST["cantidad_pedido"]);
-        $sql->bindValue(2, $_POST["proveedor"]);
-        $sql->bindValue(3, $idorden);
-        $sql->bindValue(4, $producto);
-        $sql->bindValue(5, $_POST["pedido_descripcion"]);
+        $sql->bindValue(2, $_SESSION["backend_id"]);
+        $sql->bindValue(3, $_POST["proveedor"]);
+        $sql->bindValue(4, $idorden);
+        $sql->bindValue(5, $producto);
+        $sql->bindValue(6, $_POST["pedido_descripcion"]);
         $sql->execute();
 
         $resultado=$sql->fetch(PDO::FETCH_ASSOC);

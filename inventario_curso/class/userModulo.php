@@ -30,6 +30,7 @@
            $_SESSION["nombre"]=$resultado["nombre"];
            $_SESSION["usuario"]=$resultado["usuario"];
            $_SESSION["cedula"]=$resultado["cedula"];
+           $_SESSION["rol"]=$resultado["rol_idrol"];
 
            header("Location:".Conectar::ruta()."home.php");
            exit();
@@ -67,7 +68,7 @@
         }
 
         $sql="insert into usuarios
-         values(null,?,?,?,?,?,?,?,?,?,now());";
+         values(null,?,?,?,?,?,?,?,?,now(),?);";
 
         $sql=$conectar->prepare($sql);
 
@@ -83,8 +84,8 @@
         $sql->execute();
         $resultado=$sql->fetch(PDO::FETCH_ASSOC);
         
-        var_dump($sql->errorInfo());
-        //  header("Location:".Conectar::ruta()."agregar_usuario.php?m=2");
+        //var_dump($sql->errorInfo());
+        header("Location:".Conectar::ruta()."agregar_usuario.php?m=2");
         exit();
       }
 
@@ -125,7 +126,7 @@
         password2=?,
         pregunta=?,
         respuesta=?,
-        nivel=?
+        rol_idrol=?
         where 
         id=?
         ";
@@ -145,7 +146,8 @@
         $sql->execute();
 
         $resultado=$sql->fetch(PDO::FETCH_ASSOC);
-
+         
+        //var_dump($sql->errorInfo());
         header("Location:".Conectar::ruta()."editar_usuario.php?id_usuario=".$_POST["id"]."&m=2");
         exit();
       }

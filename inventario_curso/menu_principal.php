@@ -27,10 +27,12 @@
       <ul class="nav navbar-nav navbar-right">
        
         <li class="dropdown navbar_dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Bienvenido ADMINISTRADOR <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Bienvenido <?php echo $_SESSION["usuario"];?> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
+            <!--
             <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mi Perfil</a></li>
             <li class="divider"></li>
+            -->
             <li><a href="<?php echo Conectar::ruta();?>logout.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Cerrar Sesión</a></li>
           </ul>
         </li>
