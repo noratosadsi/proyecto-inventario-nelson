@@ -62,7 +62,7 @@ $total_productos=$entradas->get_cant_productos_por_fecha();
     <td width="43%"><strong>VENDEDOR</strong></td>
   </tr>-->
   <tr>
-    <td><strong>RIF/CEDULA: </strong><?php echo $_SESSION["cedula"]; ?></td>
+    <td><strong>NIT/CEDULA: </strong><?php echo $_SESSION["cedula"]; ?></td>
   </tr>
   <tr>
     <td><strong>NOMBRE: </strong><?php echo $_SESSION["nombre"]; ?></td>

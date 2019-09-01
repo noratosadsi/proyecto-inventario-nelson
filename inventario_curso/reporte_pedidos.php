@@ -234,14 +234,14 @@
 		  				 	 		
 		  				 	 		<label for="" class="col-sm-2 control-label">Proveedor</label>
 		  				 	 	    <div class="col-sm-6">
-		  				 	 	    	<select name="rif_proveedor" class="form-control">
+		  				 	 	    	<select name="idproveedor" class="form-control">
 		  				 	 	    		
 		  				 	 	    		<option value="0">SELECCIONE</option>
                                             
                                             <?php for($i=0;$i<sizeof($proveedor);$i++){
                                               
                                               ?>
-                                                <option value="<?php echo $proveedor[$i]["rif_proveedor"];?>"><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
+                                                <option value="<?php echo $proveedor[$i]["idproveedor"];?>"><?php echo $proveedor[$i]["nombre_proveedor"];?></option>
                                               <?php
 
                                             }?>

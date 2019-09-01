@@ -82,8 +82,9 @@
         $sql->bindValue(9,$_POST["nivel"]);
         $sql->execute();
         $resultado=$sql->fetch(PDO::FETCH_ASSOC);
-
-        header("Location:".Conectar::ruta()."agregar_usuario.php?m=2");
+        
+        var_dump($sql->errorInfo());
+        //  header("Location:".Conectar::ruta()."agregar_usuario.php?m=2");
         exit();
       }
 

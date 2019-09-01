@@ -29,18 +29,18 @@ require_once("class/config.php");
 
     	<div class="container-fluid">
     		<div class="row">
-    			<div class="col-sm-3">
+    			<div class="col-sm-1">
     				
     				<?php require_once("menu_lateral.php");?>
     			</div>
 
-    			<div class="col-sm-8">
+    			<div class="col-sm-11">
     				
     				<div class="panel-usuario">
     					<ol class="breadcrumb">
-						  <li><span class="glyphicon glyphicon-home" aria-hidden="true"></span> <a href="<?php echo Conectar::ruta();?>home.php">Principal</a></li>
-						  <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <a href="<?php echo Conectar::ruta();?>usuarios.php">Usuarios</a></li>
-						  <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <a href="<?php echo Conectar::ruta();?>agregar_usuario.php">Nuevo Usuario</a></li>
+						  <li><a href="<?php echo Conectar::ruta();?>home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Principal</a></li>
+						  <li><a href="<?php echo Conectar::ruta();?>usuarios.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuarios</a></li>
+						  <li><a href="<?php echo Conectar::ruta();?>agregar_usuario.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Nuevo Usuario</a></li>
 						</ol>
     				</div><!--panel usuario-->
 
@@ -59,7 +59,7 @@ require_once("class/config.php");
 						     	  	<th>Código</th>
 						     	  	<th>Cédula</th>
 						     	  	<th>Nombres</th>
-						     	  	<th>Status</th>
+						     	  	<th>Rol</th>
 						     	  	<th>Fecha</th>
 						     	  	<th>Acciones</th>
 					     	  </tr>
@@ -71,7 +71,7 @@ require_once("class/config.php");
 					     	  	<td><?php echo $datos[$i]["id"];?></td>
 					     	  	<td><?php echo $datos[$i]["cedula"];?></td>
 					     	  	<td><?php echo $datos[$i]["nombre"];?></td>
-					     	  	<td><?php echo $datos[$i]["nivel"];?></td>
+					     	  	<td><?php if ($datos[$i]["rol_idrol"]==1){echo "Administrador";} else {echo "usuario";}?></td>
 					     	  	<td><?php echo Conectar::invierte_fecha($datos[$i]["fecha_ingreso"])?></td>
 					     	    <td><a class="btn btn-success" href="<?php echo Conectar::ruta();?>editar_usuario.php?id_usuario=<?php echo $datos[$i]["id"];?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"> </span> Editar</a> <a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_usuario.php?id_usuario=<?php echo $datos[$i]["id"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"> </span> Eliminar</a></td>
 					     	  </tr>

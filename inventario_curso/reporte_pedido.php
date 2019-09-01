@@ -19,7 +19,7 @@ $datos_empresa=$informacion_empresa->get_configuracion();
 
 $pedidos=$proveedores->get_pedido_por_fecha();
 
-ob_start(); 
+//ob_start(); 
 
    
 ?>
@@ -44,19 +44,21 @@ ob_start();
 </head>
 <table style="width: 100%;" class="header">
 <tr>
-<td width="54%" height="111"><h1 style="text-align: left; margin-right:20px;"><img src="public/images/logo_vertical.jpg" width="340" height="109"  /></h1></td>
+<td width="54%" height="111"><h1 style="text-align: left; margin-right:20px;"><img src="public/images/logo sena sistema.png" width="340" height="109"  /></h1></td>
 <td width="46%"><table style="width: 100%; font-size: 8pt;">
+  <!--
   <tr>
-    <td><strong>RIF EMPRESA: </strong> <?php echo $datos_empresa[0]["rif_empresa"]; ?></td>
+    <td><strong>NIT EMPRESA: </strong> <?php //echo $datos_empresa[0]["rif_empresa"]; ?></td>
   </tr>
   <tr>
-    <td><strong>EMPRESA: </strong> <?php echo $datos_empresa[0]["nom_empresa"]; ?></td>
+    <td><strong>EMPRESA: </strong> <?php //echo $datos_empresa[0]["nom_empresa"]; ?></td>
   </tr>
   <tr>
     <td width="43%"><strong>VENDEDOR</strong></td>
   </tr>
+-->
   <tr>
-    <td><strong>RIF/CEDULA: </strong><?php echo $_SESSION["cedula"]; ?></td>
+    <td><strong>NIT/CEDULA: </strong><?php echo $_SESSION["cedula"]; ?></td>
   </tr>
   <tr>
     <td><strong>NOMBRE: </strong><?php echo $_SESSION["nombre"]; ?></td>
@@ -78,7 +80,7 @@ ob_start();
   <th colspan="5">DATOS PERSONALES DEL PROVEEDOR </th>
   </tr>
 <tr>
-<th width="5%" bgcolor="#317eac"><span class="Estilo11">RIF</span></th>
+<th width="5%" bgcolor="#317eac"><span class="Estilo11">NIT</span></th>
 <th width="15%" bgcolor="#317eac"><span class="Estilo11">NOMBRES</span></th>
 <th width="12%" bgcolor="#317eac"><span class="Estilo11">TELEFONO</span></th>
 <th width="38%" bgcolor="#317eac"><span class="Estilo11">DIRECCIÓN</span></th>
@@ -87,7 +89,7 @@ ob_start();
 
 
 <tr class="even_row">
-<td><div align="center"><span class=""><?php echo $datos["rif_proveedor"];?></span></div></td>
+<td><div align="center"><span class=""><?php echo $datos["Nit_proveedor"];?></span></div></td>
 <td style="text-align: center"><div align="center"><span class=""><?php echo $datos["nombre_proveedor"];?></span></div></td>
 <td style="text-align: center"><div align="center"><span class=""><?php echo $datos["tlf_proveedor"];?></span></div></td>
 <td style="text-align: right"><div align="center"><span class=""><?php echo $datos["direc_proveedor"];?></span></div></td>
@@ -116,8 +118,8 @@ ob_start();
          for($i=0;$i<sizeof($pedidos);$i++){
          ?>
     <tr class="even_row">
-      <td style="text-align: center"><span class=""><?php echo $pedidos[$i]["cod_material"];?></span></td>
-      <td style="text-align: center"><span class=""><?php echo $pedidos[$i]["material_pedido"];?></span></td>
+      <td style="text-align: center"><span class=""><?php echo $pedidos[$i]["idpedido"];?></span></td>
+      <td style="text-align: center"><span class=""><?php echo $pedidos[$i]["producto_pedido"];?></span></td>
       <td style="text-align: center"><span class=""><?php echo $pedidos[$i]["cantidad_pedido"];?></span></td>
       <td style="text-align: center"><span class=""><?php echo $fecha=date("d-m-Y",strtotime($pedidos[$i]["fecha_pedido"])); ?></span></td>
      
@@ -152,14 +154,14 @@ ob_start();
 
   <?php
   
-  $salida_html = ob_get_contents();
+/*  $salida_html = ob_get_contents();
   ob_end_clean(); 
 
     require_once("public/dompdf/dompdf_config.inc.php");       
     $dompdf = new DOMPDF();
     $dompdf->load_html($salida_html);
     $dompdf->render();
-    $dompdf->stream("Listado de Clientes.pdf", array('Attachment'=>'0'));
+    $dompdf->stream("Listado de Clientes.pdf", array('Attachment'=>'0'));*/
 
 
   } else{

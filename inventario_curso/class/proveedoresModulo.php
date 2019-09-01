@@ -405,11 +405,11 @@
         $fecha_desde= ($ano."-".$mes."-".$dia);
         $fecha_hasta= ($ano1."-".$mes1."-".$dia1);
 
-        $sql="select * from pedidos where rif_proveedor=? and fecha_pedido>=? and fecha_pedido<=?;";
+        $sql="select * from pedidos where proveedores_idproveedor=? and fecha_pedido>=? and fecha_pedido<=?;";
     
         $sql=$conectar->prepare($sql);
 
-        $sql->bindValue(1,$_POST["rif_proveedor"]);
+        $sql->bindValue(1,$_POST["idproveedor"]);
         $sql->bindValue(2,$fecha_desde);
         $sql->bindValue(3,$fecha_hasta);
         $sql->execute();

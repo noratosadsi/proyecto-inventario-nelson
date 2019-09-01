@@ -31,12 +31,12 @@
 		<div class="container-fluid">
 			
 			<div class="row">
-				<div class="col-sm-3">
+				<div class="col-sm-1">
 					
 					<?php require_once("menu_lateral.php");?>
 				</div>
 
-				<div class="col-sm-8">
+				<div class="col-sm-11">
 
 					<div class="panel-usuario">
 						<ol class="breadcrumb">
@@ -145,11 +145,9 @@
 							<div class="col-sm-6">
 								
 								<select name="nivel" class="form-control" id="">
-
 									<option value="0">SELECCIONE</option>
-									<option value="ADMINISTRADOR">ADMINISTRADOR</option>
-									<option value="ASISTENTE">ASISTENTE</option>
-									
+									<option value="1">USUARIO</option>
+									<option value="2">ADMINISTRADOR</option>
 								</select>
 							</div>
 							</div>

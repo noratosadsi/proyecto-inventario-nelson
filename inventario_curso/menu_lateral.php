@@ -56,10 +56,11 @@ $menu_configuracion = array("configuracion.php", "agregar_configuracion.php", "e
 	}
 ?>
 		
-		
-<link href="public/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="public/js/bootstrap.min.js"></script>
-<script src="public/js/jquery-1.11.1.min.js"></script>
+
+<link href="public/css/cssmenulateral/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="public/js/jsmenulateral/bootstrap.min.js"></script>
+<script src="public/js/jsmenulateral/jquery-1.11.1.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <link href="public/css/estilos css.css" rel="stylesheet" >
