@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-08-2019 a las 19:37:22
+-- Tiempo de generación: 02-09-2019 a las 08:33:49
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.3.1
 
@@ -43,7 +43,8 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`idclientes`, `cedula`, `nombre`, `telefono`, `direccion`, `correo`, `fecha`) VALUES
-(1, 'cuaderno', '1', 'cuaderno 100 hojas', '2000', '2000', '2019-07-10');
+(1, 'cuaderno', 'pepa', 'cuaderno 100 hojas', '2000', '2000', '2019-07-10'),
+(2, '12313', 'pepe h', '565', '6+', 'pepa@pepa', '2019-09-02');
 
 -- --------------------------------------------------------
 
@@ -54,10 +55,30 @@ INSERT INTO `clientes` (`idclientes`, `cedula`, `nombre`, `telefono`, `direccion
 CREATE TABLE `orden_compras` (
   `id_orden_compras` int(11) NOT NULL COMMENT 'id de la orden de compras de la tabla orden compras',
   `precio_orden` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'precios de orden de la tabla orden compras',
-  `cantidad` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'cantidad de la tabla orden compras',
-  `fecha_ingreso` date NOT NULL COMMENT 'fecha de ingreso de la tabla orden compras',
   `productos_idproductos` int(11) NOT NULL COMMENT 'id del producto de la tabla productos'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `orden_compras`
+--
+
+INSERT INTO `orden_compras` (`id_orden_compras`, `precio_orden`, `productos_idproductos`) VALUES
+(56, '2000', 1),
+(57, '1000', 1),
+(58, '1000', 1),
+(59, '1000', 1),
+(60, '1000', 1),
+(61, '1000', 1),
+(62, '1000', 1),
+(63, '1000', 1),
+(64, '1000', 1),
+(65, '22000', 1),
+(66, '7550', 13),
+(67, '7550', 13),
+(68, '5000', 1),
+(69, '55', 13),
+(70, '250000', 13),
+(71, '1000', 19);
 
 -- --------------------------------------------------------
 
@@ -71,8 +92,18 @@ CREATE TABLE `pedidos` (
   `fecha_pedido` date NOT NULL COMMENT 'fecha en que se hace el pedido de la tabla pedidos',
   `usuarios_id` int(11) NOT NULL COMMENT 'id de la tabla usuarios',
   `proveedores_idproveedor` int(11) NOT NULL COMMENT 'id del proveedor de la tabla proveedores',
-  `orden_compras_id_orden_compras` int(11) NOT NULL COMMENT 'id del orden de compras de la tabla orden compras'
+  `orden_compras_id_orden_compras` int(11) NOT NULL COMMENT 'id del orden de compras de la tabla orden compras',
+  `producto_pedido` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
+  `descripcion_pedido` varchar(45) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`idpedido`, `cantidad_pedido`, `fecha_pedido`, `usuarios_id`, `proveedores_idproveedor`, `orden_compras_id_orden_compras`, `producto_pedido`, `descripcion_pedido`) VALUES
+(32, '9866', '2019-08-31', 2, 3, 56, 'borrador', 'descripcionprueba2'),
+(33, '50', '2019-09-01', 12, 3, 71, 'plumones', 'plumones 10 colores');
 
 -- --------------------------------------------------------
 
@@ -96,7 +127,13 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`idproductos`, `nombre`, `precio`, `cantidad`, `descripcion`, `fecha`, `usuarios_id`, `proveedores_idproveedor`) VALUES
-(1, 'borrador', 500, 10, 'borrador nata', '0000-00-00', 2, 3);
+(1, 'borrador', 500, 10, 'borrador nata pequeño', '2019-08-20', 2, 3),
+(3, 'esfero', 500, 12, 'bic negro', '2019-08-20', 2, 3),
+(12, 'cuaderno', 2000, 10, 'cuadriculado 20 hojas', '2019-08-21', 2, 3),
+(13, 'resma', 2500, 10, 'resma de papel de 500 hojas ', '2019-08-25', 2, 3),
+(18, 'tajalapiz', 200, 50, 'tajalapiz metalico', '2019-09-01', 2, 3),
+(19, 'plumones', 1000, 50, 'plumones varios colores', '2019-09-01', 2, 3),
+(20, 'papel silueta', 200, 100, 'resma de papel silueta varios colores', '2019-09-01', 12, 3);
 
 -- --------------------------------------------------------
 
@@ -119,7 +156,7 @@ CREATE TABLE `proveedores` (
 --
 
 INSERT INTO `proveedores` (`idproveedor`, `Nit_proveedor`, `nombre_proveedor`, `tlf_proveedor`, `direc_proveedor`, `email_proveedor`, `nom_contacto`) VALUES
-(3, '123', 'nombre', 'telefono', 'direccion', 'prov@prov.com', 'contacto');
+(3, '123', 'nombre apellido', 'telefono telefonillo', 'direccion', 'prov@prov.com', 'contacto');
 
 -- --------------------------------------------------------
 
@@ -165,7 +202,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `cedula`, `cargo`, `usuario`, `password`, `password2`, `pregunta`, `respuesta`, `fecha_ingreso`, `rol_idrol`) VALUES
-(2, 'carlos', '123', 'admin', 'carlos', '123', '123', 'nombre mascota', 'perro', '2019-07-10', 1);
+(2, 'carlos', '123', 'admin', 'carlos', '123', '123', 'nombre mascota', 'perro', '2019-07-10', 1),
+(12, 'pepa', '2', 'empleada', 'usuario', '123', '123', 'NOMBRE DE MASCOTA', 'cocky', '2019-09-01', 2);
 
 -- --------------------------------------------------------
 
@@ -177,9 +215,22 @@ CREATE TABLE `ventas` (
   `idventas` int(11) NOT NULL COMMENT 'codigo de la tabla ventas',
   `cantidad` int(11) NOT NULL COMMENT 'cantidades de la tabla ventas',
   `fecha` date NOT NULL COMMENT 'fecha de la tabla ventas',
+  `venta_producto` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
+  `venta_precio` int(11) NOT NULL,
   `usuarios_id` int(11) NOT NULL COMMENT 'id de la tabla usuarios',
   `clientes_idclientes` int(11) NOT NULL COMMENT 'id de la tabla clientes'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `ventas`
+--
+
+INSERT INTO `ventas` (`idventas`, `cantidad`, `fecha`, `venta_producto`, `venta_precio`, `usuarios_id`, `clientes_idclientes`) VALUES
+(1, 4, '2019-09-01', 'cuaderno', 1500, 2, 1),
+(2, 1, '2019-09-02', 'resma', 5000, 2, 1),
+(3, 10, '2019-09-02', 'tajalapiz', 500, 2, 1),
+(4, 10, '2019-09-02', 'borrador', 500, 2, 1),
+(5, 10, '2019-09-02', 'papel silueta', 2000, 2, 2);
 
 --
 -- Índices para tablas volcadas
@@ -250,25 +301,25 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idclientes` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla clientes', AUTO_INCREMENT=2;
+  MODIFY `idclientes` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla clientes', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `orden_compras`
 --
 ALTER TABLE `orden_compras`
-  MODIFY `id_orden_compras` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la orden de compras de la tabla orden compras';
+  MODIFY `id_orden_compras` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la orden de compras de la tabla orden compras', AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `idpedido` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla pedidos ';
+  MODIFY `idpedido` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla pedidos ', AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `idproductos` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla productos', AUTO_INCREMENT=2;
+  MODIFY `idproductos` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla productos', AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
@@ -280,13 +331,13 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla usuarios', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla usuarios', AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `idventas` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla ventas';
+  MODIFY `idventas` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla ventas', AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas

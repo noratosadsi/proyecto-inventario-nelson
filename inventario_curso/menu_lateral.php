@@ -22,6 +22,14 @@
 		$active_cliente="class=\"active\"";
 	}
 
+	//lista de las pàginas del menú ventas
+	$menu_ventas= array("ventas.php", "agregar_venta.php", "editar_venta.php");
+
+	//condicional para el menú de las ventas verfifica si está en el menú clientes
+	if (in_array($archivo1, $menu_ventas)) {
+		$active_ventas="class=\"active\"";
+	}
+
 
 	//lista de las páginas del menú proveedores
 	$menu_proveedor = array("proveedores.php", "agregar_proveedor.php", "editar_proveedor.php", "pedidos.php", "agregar_pedido.php", "editar_pedido.php", "reporte_pedidos.php");
@@ -82,7 +90,9 @@ $menu_configuracion = array("configuracion.php", "agregar_configuracion.php", "e
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li <?php echo @$active_inicio;?>><a href="<?php echo Conectar::ruta();?>home.php">INICIO<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li <?php echo @$active_cliente;?>><a href="<?php echo Conectar::ruta();?>clientes.php" style="color:#FF0000";>VENTAS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-lock"></span></a></li>
+
+				<li <?php echo @$active_cliente;?>><a href="<?php echo Conectar::ruta();?>clientes.php" style="";>CLIENTES<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+
 				<li <?php echo @$active_proveedor;?>><a href="<?php echo Conectar::ruta();?>proveedores.php">PROVEEDORES<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
 				<li <?php  echo @$active_entradas; ?>>
 					<a href="<?php echo Conectar::ruta();?>entradas.php" class="" >PRODUCTOS <span class=""></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-shopping-cart"></span></a>
@@ -96,8 +106,12 @@ $menu_configuracion = array("configuracion.php", "agregar_configuracion.php", "e
 						<li><a href="#">One more separated link</a></li>
 					</ul>-->
 				</li>
+
+				<!-- ALMACEN
 				<li <?php if($archivo1=="almacen.php"){ echo "class=\"active\"";};?>><a href="<?php echo Conectar::ruta();?>almacen.php" style="color:#FF0000";>ALMACEN<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a></li>
-				<li <?php if($archivo1=="ventas.php"){ echo "class=\"active\"";};?>><a href="<?php echo Conectar::ruta();?>ventas.php" style="color:#FF0000";>VENTAS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-lock"></span></a></li>
+				-->
+
+				<li <?php echo @$active_ventas;?>><a href="<?php echo Conectar::ruta();?>ventas.php" style="";>VENTAS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-lock"></span></a></li>				
 
 				<?php 
 				//muestra la opción de usuarios si es administrador
@@ -107,8 +121,14 @@ $menu_configuracion = array("configuracion.php", "agregar_configuracion.php", "e
 				<li <?php echo @$active_usuarios; ?>><a href="usuarios.php">USUARIOS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
 				<?php } ?>
 
+				<!--BASE DE DATOS
 				<li <?php if($archivo1=="basedatos.php"){ echo "class=\"active\"";};?>><a href="<?php echo Conectar::ruta();?>basedatos.php" style="color:#FF0000";>BASE DATOS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a></li>
+				-->
+
+				<!--CONFIGURACION
 				<li <?php echo @$active_configuracion; ?>><a href="<?php echo Conectar::ruta();?>configuracion.php" style="color:#FF0000";>CONFIGURACION<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-wrench"></span></a></li>
+				-->
+
 				<li class=""><a href="logout.php">CERRAR SESION<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></span></a></li>
 				
 			</ul>

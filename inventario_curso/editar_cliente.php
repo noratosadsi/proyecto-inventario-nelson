@@ -33,19 +33,18 @@
 		<div class="container-fluid">
 			
 			<div class="row">
-				<div class="col-sm-3">
+				<div class="col-sm-1">
 					
 					<?php require_once("menu_lateral.php");?>
 				</div>
 
-				<div class="col-sm-8">
+				<div class="col-sm-11">
 
 					<div class="panel-cliente">
 						<ol class="breadcrumb">
 						  <li><a href="<?php echo Conectar::ruta();?>home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Principal</a></li>
-						  <li><a href="<?php echo Conectar::ruta();?>clientes.php"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> VENTAS</a></li>
-						  <li><a href="<?php echo Conectar::ruta();?>agregar_cliente.php"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>AGREGAR VENTA</a></li>
-						   <li><a href="<?php echo Conectar::ruta();?>pdf.php"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> LISTADO DE VENTAS EN PDF</a></li>
+						  <li><a href="<?php echo Conectar::ruta();?>clientes.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> CLIENTES</a></li>
+						  <li><a href="<?php echo Conectar::ruta();?>agregar_cliente.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>AGREGAR CLIENTE</a></li>
 						</ol>
 					</div>
 
@@ -73,44 +72,37 @@
 					<div class="panel panel-default">
 						 
 						 <div class="panel-heading">
-						 	<h3 class="panel-title"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> EDITAR VENTAS</h3>
+						 	<h3 class="panel-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> EDITAR CLIENTE</h3>
 						 </div>
 
 						 <div class="panel-body">
 						 	 <form action="" method="post" class="form-horizontal">
 						
 						   <div class="form-group">
-							<label for="" class="col-sm-2 control-label">producto</label>
+							<label for="" class="col-sm-2 control-label">nombre</label>
 							<div class="col-sm-6">
-								<input type="text" name="producto" class="form-control" placeholder="ingrese su nombre" value="<?php echo $datos[0]["nom_cliente"];?>">
+								<input type="text" name="nombre" class="form-control" placeholder="ingrese su nombre" value="<?php echo $datos[0]["nombre"];?>">
 							</div>
 						    </div>
 						                           
                            <div class="form-group">
-							<label for="" class="col-sm-2 control-label">cantidad</label>
+							<label for="" class="col-sm-2 control-label">teléfono</label>
 							<div class="col-sm-6">
-								<input type="text" name="cantidad" class="form-control" placeholder="ingrese su apellido" value="<?php echo $datos[0]["ape_cliente"];?>">
+								<input type="text" name="telefono" class="form-control" placeholder="ingrese su apellido" value="<?php echo $datos[0]["telefono"];?>">
 							</div>
 						    </div>
 
 							 <div class="form-group">
-							<label for="" class="col-sm-2 control-label">descripcion</label>
+							<label for="" class="col-sm-2 control-label">dirección</label>
 							<div class="col-sm-6">
-								<input type="text" name="descripcion" class="form-control" placeholder="ingrese su cedula" value="<?php echo $datos[0]["ced_cliente"];?>">
+								<input type="text" name="direccion" class="form-control" placeholder="ingrese su cedula" value="<?php echo $datos[0]["direccion"];?>">
 							</div>
 							</div>
 
 							 <div class="form-group">
-							<label for="" class="col-sm-2 control-label">precio</label>
+							<label for="" class="col-sm-2 control-label">correo</label>
 							<div class="col-sm-6">
-								<input type="text" name="precio" class="form-control" placeholder="ingrese su telefono" value="<?php echo $datos[0]["tlf_cliente"];?>">
-							</div>
-							</div>
-
-							 <div class="form-group">
-							<label for="" class="col-sm-2 control-label">precio total</label>
-							<div class="col-sm-6">
-								<input type="text" name="preciototal" class="form-control" placeholder="ingrese su direccion" value="<?php echo $datos[0]["direc_cliente"];?>">
+								<input type="text" name="correo" class="form-control" placeholder="ingrese su telefono" value="<?php echo $datos[0]["correo"];?>">
 							</div>
 							</div>
 

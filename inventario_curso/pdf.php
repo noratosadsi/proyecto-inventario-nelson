@@ -6,15 +6,15 @@ require_once("class/config.php");
 
   if(isset($_SESSION["backend_id"]) and isset($_SESSION["nombre"]) and isset($_SESSION["cedula"])){
 
-require_once("class/clientesModulo.php");
+require_once("class/ventasModulo.php");
 require_once("class/configuracionModulo.php");
 
-$clientes=new Clientes();
+$ventas=new Ventas();
 
 $informacion_empresa=new Configuracion();
 
 
-$datos=$clientes->get_clientes();
+$datos=$ventas->get_ventas();
 
 $datos_empresa=$informacion_empresa->get_configuracion();
 
@@ -45,30 +45,28 @@ error_reporting(E_ERROR);
 	</tr>
 	</table>
  
-<table width="100%" class="change_order_items">
+<table width="100%" class="change_order_items" align="center">
  	<tr>
   		<th colspan="7">LISTADO GENERAL DE VENTAS </th>
   	</tr>
  	<tr>
- 		<th width="5%" bgcolor="#317eac"><span class="Estilo11">N&ordm;</span></th>
-		<th width="8%" bgcolor="#317eac"><span class="Estilo11">PRODUCTO</span></th>
-		<th width="15%" bgcolor="#317eac"><span class="Estilo11">CANTIDAD</span></th>
-		<th width="15%" bgcolor="#317eac"><span class="Estilo11">DESCRIPCION PRODUCTO</span></th>
-		<th width="7%" bgcolor="#317eac"><span class="Estilo11">PRECIO</span></th>
-		<th width="38%" bgcolor="#317eac"><span class="Estilo11">PRECIO TOTAL</span></th>
-		<th width="30%" bgcolor="#317eac"><span class="Estilo11">FECHA</span></th>
+ 		<th width="10%" bgcolor="#317eac"><span class="Estilo11">N&ordm;</span></th>
+		<th width="30%" bgcolor="#317eac"><span class="Estilo11">PRODUCTO</span></th>
+		<th width="10%" bgcolor="#317eac"><span class="Estilo11">CANTIDAD</span></th>
+		<th width="15%" bgcolor="#317eac"><span class="Estilo11">PRECIO</span></th>
+		<th width="15%" bgcolor="#317eac"><span class="Estilo11">PRECIO TOTAL</span></th>
+		<th width="20%" bgcolor="#317eac"><span class="Estilo11">FECHA</span></th>
  	</tr>
  	<?php
 	  	for($i=0;$i<sizeof($datos);$i++) {
   	?>
  	<tr>
-		<td><div align="center"><span class="Estilo3"><?php echo $datos[$i]['cod_cliente']; ?></span></div></td>
-		<td><div align="center"><span class="Estilo3"><?php echo $datos[$i]['ced_cliente']; ?></span></div></td>
-		<td style="text-align: center"><div align="center"><span><?php echo $datos[$i]['nom_cliente']; ?></span></div></td>
-		<td style="text-align: center"><div align="center"><span><?php echo $datos[$i]['ape_cliente']; ?></span></div></td>
-		<td style="text-align: center"><div align="center"><span><?php echo $datos[$i]['tlf_cliente']; ?></span></div></td>
-		<td style="text-align: right"><div align="center"><span><?php echo $datos[$i]['direc_cliente']; ?></span></div></td>
-		<td style="text-align:center"><div align="center"><span><?php echo $datos[$i]['fecha']; ?></span></div></td>
+		<td><div align="center"><span class="Estilo3"><?php echo $datos[$i]['idventas']; ?></span></div></td>
+		<td><div align="center"><span class="Estilo3"><?php echo $datos[$i]['venta_producto']; ?></span></div></td>
+		<td style="text-align: center"><div align="center"><span><?php echo $datos[$i]['cantidad']; ?></span></div></td>
+		<td style="text-align: center"><div align="center"><span><?php echo $datos[$i]['venta_precio']; ?></span></div></td>
+		<td style="text-align: center"><div align="center"><span><?php $precio_total=$datos[$i]["cantidad"]*$datos[$i]["venta_precio"]; echo $precio_total; ?></span></div></td>
+		<td style="text-align: right"><div align="center"><span><?php echo $datos[$i]['fecha']; ?></span></div></td>
 	</tr>
 	<?php } ?> 	
  </table></html>
