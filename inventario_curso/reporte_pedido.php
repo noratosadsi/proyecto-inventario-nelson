@@ -143,6 +143,10 @@ $pedidos=$proveedores->get_pedido_por_fecha();
     <td style="text-align: center; padding-top: 0em;">&nbsp;</td>
   </tr>
   <tr>
+   <?php
+	  date_default_timezone_set('America/Bogota');
+	  
+	  ?>
     <td style="padding-top: 0em"><span class="Estilo8">REALIZADO EL DIA <?php echo date("d")?> DE <?php echo Conectar::convertir(date('m'))?> DEL <?php echo date("Y")?></span></td>
     <td style="text-align: center; padding-top: 0em;">&nbsp;</td>
   </tr>

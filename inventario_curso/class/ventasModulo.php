@@ -42,25 +42,47 @@
         
         $producto=$item["nombre"];
 
-    	if(empty($_POST["producto"]) or empty($_POST["cantidad"]) or empty($_POST["precio"]) or empty($_POST["cliente"])){
+    	if(empty($_POST["producto"]) or empty($_POST["cantidad"]) or empty($_POST["precio"]) or empty($_POST["cliente"]) or empty($_POST["descripcion"])){
           
           header("Location:".Conectar::ruta()."agregar_venta.php?m=1");
           exit();
     	}
 
     	$sql="insert into ventas 
-    	values(null,?,now(),?,?,?,?);";
+    	values(null,?,now(),?,?,?,?,?);";
 
     	$sql=$conectar->prepare($sql);
         
         $sql->bindValue(1, $_POST["cantidad"]);
     	$sql->bindValue(2,$producto);
     	$sql->bindValue(3, $_POST["precio"]);
-    	$sql->bindValue(4, $_SESSION["backend_id"]);
-    	$sql->bindValue(5, $_POST["cliente"]);
+    	$sql->bindValue(4, $_POST["descripcion"]);
+    	$sql->bindValue(5, $_SESSION["backend_id"]);
+    	$sql->bindValue(6, $_POST["cliente"]);
     	$sql->execute();
 
     	$resultado=$sql->fetch(PDO::FETCH_ASSOC);
+		
+		
+		//restar los productos vendidos de los que hay en existencia
+		
+		$cantidad_producto=$item["cantidad"];
+		$resta=$cantidad_producto-$_POST["cantidad"];
+		
+		//id del producto
+		
+		$idproducto=$item["idproductos"];
+		
+		$sql="update productos set cantidad=? where idproductos=?";
+
+  	  	$sql=$conectar->prepare($sql);
+
+  	  	$sql->bindValue(1, $resta);
+  	  	$sql->bindValue(2, $idproducto);
+
+  	  	$sql->execute();
+
+  	  	$resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
 
     	header("Location:".Conectar::ruta()."agregar_venta.php?m=2");
     	exit();

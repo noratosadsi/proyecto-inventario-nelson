@@ -84,7 +84,7 @@ $total_productos=$entradas->get_cant_productos_por_fecha();
   <th colspan="5">DATOS PERSONALES DEL PROVEEDOR </th>
   </tr>
 <tr>
-<th width="5%" bgcolor="#317eac"><span class="Estilo11">RIF</span></th>
+<th width="5%" bgcolor="#317eac"><span class="Estilo11">NIT</span></th>
 <th width="15%" bgcolor="#317eac"><span class="Estilo11">NOMBRES</span></th>
 <th width="12%" bgcolor="#317eac"><span class="Estilo11">TELEFONO</span></th>
 <th width="38%" bgcolor="#317eac"><span class="Estilo11">DIRECCIÓN</span></th>
@@ -199,7 +199,11 @@ $total_productos=$entradas->get_cant_productos_por_fecha();
     <td style="text-align: center; padding-top: 0em;">&nbsp;</td>
   </tr>
   <tr>
-    <td style="padding-top: 0em"><span class="Estilo8">REALIZADO EL DIA <?php echo date("d")?> DE <?php echo Conectar::convertir(date('m'))?> DEL <?php echo date("Y")?></span></td>
+   	<?php
+	  date_default_timezone_set('America/Bogota');
+	  
+	  ?>
+    <td style="padding-top: 0em"><span class="Estilo8">REALIZADO EL DIA <?php echo date("d")?> DE <?php echo Conectar::convertir(date('m'))?> DEL <?php echo date("Y")?> HORA <?php echo date("H"),date("i")?></span></td>
     <td style="text-align: center; padding-top: 0em;">&nbsp;</td>
   </tr>
 </table>

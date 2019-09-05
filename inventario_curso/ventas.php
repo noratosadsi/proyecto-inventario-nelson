@@ -56,6 +56,7 @@
                        	      	<tr>
 	                       	      	<th>ID VENTAS</th>
 	                       	      	<th>VENTA</th>		
+	                       	      	<th>DESCRIPCION</th>		
 	                       	      	<th>CANTIDAD</th>
 	                       	      	<th>PRECIO UNIDAD</th>
 									<th>PRECIO TOTAL</th>
@@ -70,6 +71,7 @@
                        	      	 <tr>
                        	      	 	<td><?php echo $datos[$i]["idventas"];?></td>
                        	      	 	<td><?php echo $datos[$i]["venta_producto"];?></td>
+                       	      	 	<td><?php echo $datos[$i]["venta_descripcion"];?></td>
                        	      	 	<td><?php echo $datos[$i]["cantidad"];?></td>
                        	      	 	<td><?php echo $datos[$i]["venta_precio"];?></td>
                        	      	 	<td name="precio_total"><?php $precio_total=$datos[$i]["cantidad"]*$datos[$i]["venta_precio"]; echo $precio_total;?></td>

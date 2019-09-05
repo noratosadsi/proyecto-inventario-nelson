@@ -74,7 +74,7 @@
 
                            case "2";
                            ?>
-                           <h2>el cliente se ha agregado</h2>
+                           <h2>la venta se ha agregado</h2>
                            <?php
                            break;
                          }
@@ -103,6 +103,13 @@
                                          }
 		  				 	  	    ?>
 								</select>
+							</div>
+						    </div>
+					       
+					       <div class="form-group">
+							<label for="" class="col-sm-2 control-label">DESCRIPCION</label>
+							<div class="col-sm-6">
+								<input type="text" name="descripcion" class="form-control" placeholder="ingrese descripcion">
 							</div>
 						    </div>
 						                           

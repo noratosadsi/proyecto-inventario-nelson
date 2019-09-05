@@ -46,7 +46,7 @@
 		  	 		 <div class="panel panel-default">
 		  	 		 	 
 		  	 		 	 <div class="panel-heading">
-		  	 		 	 	 <h3 class="panel-title"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Consulta General de Compras de Productos</h3>
+		  	 		 	 	 <h3 class="panel-title"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Existencia General de Productos</h3>
 		  	 		 	 </div>
 
 		  	 		 	 <div class="panel-body">
