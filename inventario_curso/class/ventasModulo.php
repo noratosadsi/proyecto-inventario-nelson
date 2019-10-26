@@ -8,7 +8,7 @@
        $conectar=parent::conexion();
        parent::set_names();
 
-       $sql="select * from ventas inner join clientes
+       $sql="select *, ventas.fecha as fecha_ventas from ventas inner join clientes
         on ventas.clientes_idclientes=clientes.idclientes";
        
        $sql=$conectar->prepare($sql);
@@ -85,7 +85,8 @@
   	  	$resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
 
     	header("Location:".Conectar::ruta()."agregar_venta.php?m=2");
-    	exit();
+    	//var_dump($sql->errorInfo());
+        exit();
     }
 
     public function get_venta_por_id($id_venta){

@@ -75,7 +75,7 @@
                        	      	 	<td><?php echo $datos[$i]["cantidad"];?></td>
                        	      	 	<td><?php echo $datos[$i]["venta_precio"];?></td>
                        	      	 	<td name="precio_total"><?php $precio_total=$datos[$i]["cantidad"]*$datos[$i]["venta_precio"]; echo $precio_total;?></td>
-                       	      	 	<td><?php echo Conectar::invierte_fecha($datos[$i]["fecha"])?></td>
+                       	      	 	<td><?php echo Conectar::invierte_fecha($datos[$i]["fecha_ventas"])?></td>
                        	      	 	<td><?php echo $datos[$i]["nombre"];?></td>
 									<!--
                        	      	 	<td><a class="btn btn-success" href="<?php echo Conectar::ruta();?>editar_venta.php?id_venta=<?php echo $datos[$i]["idventas"];?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar</a>  <a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_cliente.php?id_cliente=<?php echo $datos[$i]["cod_cliente"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></td>

@@ -93,15 +93,8 @@
 						   <div class="form-group">
 							<label for="" class="col-sm-2 control-label">VENTA PRODUCTO</label>
 							<div class="col-sm-6">
-								<select name="producto" class="form-control">
-									<option value="0">SELECCIONAR</option>
-									<?php
-                                        for($i=0; $i<sizeof($producto);$i++){               
-                                     ?>
-                                    <option value="<?php echo $producto[$i]["idproductos"];?>"><?php echo $producto[$i]["nombre"];?></option>
-                                    <?php
-                                         }
-		  				 	  	    ?>
+								<select name="producto" class="form-control" id="lista_productos">
+									
 								</select>
 							</div>
 						    </div>
@@ -116,7 +109,10 @@
                            <div class="form-group">
 							<label for="" class="col-sm-2 control-label">CANTIDAD</label>
 							<div class="col-sm-6">
-								<input type="text" name="cantidad" class="form-control" placeholder="ingrese cantidad">
+								<!--<input type="text" name="cantidad" class="form-control" placeholder="ingrese cantidad">-->
+								<select name="cantidad" class="form-control" id="cantidades">
+								
+								</select>
 							</div>
 						    </div>
 
@@ -180,7 +176,7 @@
 	</div>
 
 	<?php //require_once("footer.php");?>
-	
+	<script type="text/javascript" src="public/js/index.js"></script>
 </body>
 </html>
 
