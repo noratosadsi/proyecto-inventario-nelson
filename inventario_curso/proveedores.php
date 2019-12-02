@@ -60,6 +60,7 @@
 		  					   <thead>
 		  					 	 <tr>
 			  					 	  <th>Id proveedor</th>
+			  					 	  <th>Nit</th>
 			  					 	  <th>Nombres</th>
 			  					 	  <th>Teléfono</th>
 			  					 	  <th>Dirección</th>
@@ -79,6 +80,7 @@
                                 	
                                 	<tr>
                                 		<td><?php echo $datos[$i]["idproveedor"];?></td>
+                                		<td><?php echo $datos[$i]["Nit_proveedor"];?></td>
                                 		<td><?php echo $datos[$i]["nombre_proveedor"];?></td>
                                 		<td><?php echo $datos[$i]["tlf_proveedor"];?></td>
                                 		<td><?php echo $datos[$i]["direc_proveedor"];?></td>

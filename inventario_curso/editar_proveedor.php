@@ -35,13 +35,13 @@
 		 	
 		 	<div class="row">
 		 		
-		 		<div class="col-sm-3">
+		 		<div class="col-sm-1">
 		 			 
 		 			 <?php require_once("menu_lateral.php");?>
 		 		</div>
 
 
-		 		<div class="col-sm-8">
+		 		<div class="col-sm-11">
 
 		 			<div class="panel-proveedor">
 		  				 <ol class="breadcrumb">

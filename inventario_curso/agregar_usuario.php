@@ -146,8 +146,8 @@
 								
 								<select name="nivel" class="form-control" id="">
 									<option value="0">SELECCIONE</option>
-									<option value="1">USUARIO</option>
-									<option value="2">ADMINISTRADOR</option>
+									<option value="2">USUARIO</option>
+									<option value="1">ADMINISTRADOR</option>
 								</select>
 							</div>
 							</div>
