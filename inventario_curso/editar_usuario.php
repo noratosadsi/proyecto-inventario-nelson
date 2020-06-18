@@ -119,7 +119,7 @@
 								<input type="text" name="password2" class="form-control" placeholder="repita su password" value="<?php echo $datos[0]["password2"];?>">
 							</div>
 							</div>
-
+					   		<!--
 							 <div class="form-group">
 							<label for="" class="col-sm-2 control-label">Pregunta Secreta</label>
 							<div class="col-sm-6">
@@ -134,6 +134,7 @@
 								</select>
 							</div>
 							</div>
+							
 
 							 <div class="form-group">
 							<label for="" class="col-sm-2 control-label">Respuesta Secreta</label>
@@ -141,7 +142,7 @@
 								<input type="text" name="respuesta" class="form-control" placeholder="ingrese respuesta" value="<?php echo $datos[0]["respuesta"];?>">
 							</div>
 							</div>
-
+					   		-->
 							 <div class="form-group">
 							<label for="" class="col-sm-2 control-label">Nivel Acceso</label>
 							<div class="col-sm-6">

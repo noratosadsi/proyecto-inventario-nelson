@@ -53,7 +53,7 @@
 <div id="title-sect">
 <h1>inventario_curso<br> Data Dictionay</h1>
 <p>
-<em>2019-07-10</em>
+<em>2020-06-18</em>
 </p>
 <p class="proj-desc">
 <em></em>
@@ -220,32 +220,6 @@
     <td>precios de orden de la tabla orden compras</td>
 </tr>
 <tr>
-    <td>cantidad</td>
-    <td>VARCHAR(200)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>cantidad de la tabla orden compras</td>
-</tr>
-<tr>
-    <td>fecha_ingreso</td>
-    <td>DATE</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>fecha de ingreso de la tabla orden compras</td>
-</tr>
-<tr>
     <td>productos_idproductos</td>
     <td>INT(11)</td>
     <td>&nbsp;</td>
@@ -352,6 +326,32 @@
     <td></td>
     <td>id del orden de compras de la tabla orden compras</td>
 </tr>
+<tr>
+    <td>producto_pedido</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>pedido del producto</td>
+</tr>
+<tr>
+    <td>descripcion_pedido</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>descripción del pedido</td>
+</tr>
 <table id='productos'>
 <caption>productos</caption>
 <tr><td colspan='11'></td></tr>
@@ -434,6 +434,19 @@
     <td>descripcion del producto</td>
 </tr>
 <tr>
+    <td>fecha</td>
+    <td>DATE</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>fecha del producto</td>
+</tr>
+<tr>
     <td>usuarios_id</td>
     <td>INT(11)</td>
     <td>&nbsp;</td>
@@ -445,6 +458,19 @@
     <td class='attr'>&nbsp;</td>
     <td></td>
     <td>id de la tabla usuarios</td>
+</tr>
+<tr>
+    <td>proveedores_idproveedor</td>
+    <td>INT(11)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>id del proveedor de la tabla proveedores</td>
 </tr>
 <table id='proveedores'>
 <caption>proveedores</caption>
@@ -552,19 +578,6 @@
     <td class='attr'>&nbsp;</td>
     <td></td>
     <td>nombre del contacto de la tabla proveedores</td>
-</tr>
-<tr>
-    <td>fecha</td>
-    <td>DATE</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td>fecha de la tabla proveedores</td>
 </tr>
 <table id='rol'>
 <caption>rol</caption>
@@ -765,8 +778,7 @@
     <td>&nbsp;</td>
     <td class='attr'>&nbsp;</td>
     <td></td>
-    <td>id rol de la tabla rol, de la tabla usuarios
-</td>
+    <td>id rol de la tabla rol, de la tabla usuarios\n</td>
 </tr>
 <table id='ventas'>
 <caption>ventas</caption>
@@ -822,6 +834,45 @@
     <td class='attr'>&nbsp;</td>
     <td></td>
     <td>fecha de la tabla ventas</td>
+</tr>
+<tr>
+    <td>venta_producto</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>producto vendido</td>
+</tr>
+<tr>
+    <td>venta_precio</td>
+    <td>INT(11)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>precio del producto vendido</td>
+</tr>
+<tr>
+    <td>venta_descripcion</td>
+    <td>VARCHAR(100)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>descripción del producto vendido</td>
 </tr>
 <tr>
     <td>usuarios_id</td>

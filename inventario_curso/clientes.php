@@ -72,7 +72,7 @@
                        	      	 	<td><?php echo $datos[$i]["direccion"];?></td>
                        	      	 	<td><?php echo $datos[$i]["correo"];?></td>
                        	      	 	<td><?php echo Conectar::invierte_fecha($datos[$i]["fecha"])?></td>
-                       	      	 	<td><a class="btn btn-success" href="<?php echo Conectar::ruta();?>editar_cliente.php?id_cliente=<?php echo $datos[$i]["idclientes"];?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar</a>  <a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_cliente.php?id_cliente=<?php echo $datos[$i]["idclientes"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></td>
+                       	      	 	<td><a class="btn btn-success" href="<?php echo Conectar::ruta();?>editar_cliente.php?id_cliente=<?php echo $datos[$i]["idclientes"];?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar</a> <!-- <a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_cliente.php?id_cliente=<?php echo $datos[$i]["idclientes"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a>--></td>
                        	      	 </tr>
                        	      	 <?php } ?>
                        	      </tbody>

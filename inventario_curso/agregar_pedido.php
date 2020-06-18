@@ -61,7 +61,6 @@
 						</ol>
 		  			</div>
 
-		  			
 		  			<?php if(isset($_GET["m"]))
                        
                        switch($_GET["m"]){
@@ -126,7 +125,7 @@
 		  				 	  	  	 <label for="" class="col-sm-2 control-label">Descripción Producto</label>
 		  				 	  	     
 		  				 	  	     <div class="col-sm-6">
-		  				 	  	     	<input type="text" name="pedido_descripcion" class="form-control" placeholder="descripcion pedido">
+		  				 	  	     	<input type="text" name="pedido_descripcion" class="form-control" placeholder="descripcion producto">
 		  				 	  	     </div>
 		  				 	  	  </div>
 
@@ -134,15 +133,15 @@
 		  				 	  	  	 <label for="" class="col-sm-2 control-label">Cantidad Pedido</label>
 		  				 	  	     
 		  				 	  	     <div class="col-sm-6">
-		  				 	  	     	<input type="text" name="cantidad_pedido" class="form-control" placeholder="cantidad producto">
+		  				 	  	     	<input type="text" name="cantidad_pedido" class="form-control" placeholder="cantidad pedido">
 		  				 	  	     </div>
 		  				 	  	  </div>
 								  
 								  <div class="form-group">
-		  				 	  	  	 <label for="" class="col-sm-2 control-label">PRECIO</label>
+		  				 	  	  	 <label for="" class="col-sm-2 control-label">PRECIO UNIDAD</label>
 		  				 	  	     
 		  				 	  	     <div class="col-sm-6">
-		  				 	  	     	<input type="text" name="precio_pedido" class="form-control" placeholder="cantidad producto">
+		  				 	  	     	<input type="text" name="precio_pedido" class="form-control" placeholder="precio unidad">
 		  				 	  	     </div>
 		  				 	  	  </div>
 								  

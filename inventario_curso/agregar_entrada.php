@@ -68,7 +68,7 @@
 
                           case "2";
                           ?>
-                          <h2>se agregó el pedido</h2>
+                          <h2>se agregó el producto</h2>
                           <?php 
                           break;
                        }

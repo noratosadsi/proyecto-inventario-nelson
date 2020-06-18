@@ -115,7 +115,9 @@
  	  	  $sql=$conectar->prepare($sql);
 
  	  	  $sql->bindValue(1,$id_proveedor);
- 	  	  $sql->execute();
+             $sql->execute();
+             
+       
 
  	  	  return $resultado=$sql->fetch(PDO::FETCH_ASSOC);
  	  }
@@ -125,7 +127,7 @@
        $conectar=parent::conexion();
        parent::set_names();
 
-       $sql="select * from pedidos inner join proveedores on proveedores_idproveedor=idproveedor;";
+       $sql="select * from pedidos inner join proveedores on proveedores_idproveedor=idproveedor inner join orden_compras on orden_compras_id_orden_compras=id_orden_compras;";
 
        $sql=$conectar->prepare($sql);
 
@@ -370,7 +372,9 @@
 
         return $resultado=$sql->fetch(PDO::FETCH_ASSOC);
 
-		print_r($sql->errorInfo());
+        print_r($sql->errorInfo());
+        
+        
     }
 
     public function get_proveedores_por_rif(){

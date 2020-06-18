@@ -57,7 +57,7 @@
 		  	 		 	 	   	   	  <tr>
 		  	 		 	 	   	   	  	<th>Código</th>
 		  	 		 	 	   	   	  	<th>Producto</th>
-		  	 		 	 	   	   	  	<th>Precio</th>
+		  	 		 	 	   	   	  	<th>Precio Unidad</th>
 		  	 		 	 	   	   	  	<th>Cantidad</th>
 										<th>Descripción</th>
 		  	 		 	 	   	   	  	<th>Proveedor</th>
@@ -77,7 +77,7 @@
 		  	 		 	 	   	   		<td><?php echo $datos[$i]["descripcion"];?></td>
 		  	 		 	 	   	   		<td><?php echo $datos[$i]["nombre_proveedor"];?></td>
 		  	 		 	 	   	   		<td><?php echo Conectar::invierte_fecha($datos[$i]["fecha"]);?></td>
-		  	 		 	 	   	   		<td><a class="btn btn-success" href="<?php echo Conectar::ruta();?>editar_entrada.php?idproductos=<?php echo $datos[$i]["idproductos"];?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar</a> <a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_entrada.php?idproductos=<?php echo $datos[$i]["idproductos"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></td>
+		  	 		 	 	   	   		<td><a class="btn btn-success" href="<?php echo Conectar::ruta();?>editar_entrada.php?idproductos=<?php echo $datos[$i]["idproductos"];?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar</a> <!--<a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_entrada.php?idproductos=<?php echo $datos[$i]["idproductos"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a>--></td>
 		  	 		 	 	   	   	</tr>
 		  	 		 	 	   	   	<?php }?>
 		  	 		 	 	   	   </tbody>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-09-2019 a las 06:43:39
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.3
+-- Tiempo de generación: 19-06-2020 a las 01:41:43
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -43,8 +43,10 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`idclientes`, `cedula`, `nombre`, `telefono`, `direccion`, `correo`, `fecha`) VALUES
-(1, 'cuaderno', 'pepa', 'cuaderno 100 hojas', '2000', '2000', '2019-07-10'),
-(2, '12313', 'pepe h', '565', '6+', 'pepa@pepa', '2019-09-02');
+(12, '93180405', 'Jennyferd', '2211137', 'carr 23A No, 45A - 29', 'crespis@gmail.com', '2020-03-24'),
+(13, '52577812', 'Miguel Gomez', '2201509', 'avenida la esperanza 51', 'miguelon@ gmail.com', '2020-06-12'),
+(15, '1016050005', 'anderson', '3133286329', 'calle 67a 113 60', 'andr0x@outlook.com', '2020-05-05'),
+(16, '52954130', 'Vanessa chorizo', '2215119', 'carrera 7 # 50 - 20', 'turizo@20gmail.com', '2020-06-12');
 
 -- --------------------------------------------------------
 
@@ -80,7 +82,15 @@ INSERT INTO `orden_compras` (`id_orden_compras`, `precio_orden`, `productos_idpr
 (70, '250000', 13),
 (71, '1000', 19),
 (72, '2000', 1),
-(73, '1100', 22);
+(73, '1100', 22),
+(74, '800', 26),
+(75, '10000', 24),
+(76, '50000', 1),
+(77, '800', 19),
+(78, '5000', 13),
+(79, '900', 26),
+(80, '900', 20),
+(81, '900', 20);
 
 -- --------------------------------------------------------
 
@@ -98,16 +108,6 @@ CREATE TABLE `pedidos` (
   `producto_pedido` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `descripcion_pedido` varchar(45) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `pedidos`
---
-
-INSERT INTO `pedidos` (`idpedido`, `cantidad_pedido`, `fecha_pedido`, `usuarios_id`, `proveedores_idproveedor`, `orden_compras_id_orden_compras`, `producto_pedido`, `descripcion_pedido`) VALUES
-(32, '9866', '2019-08-31', 2, 3, 56, 'borrador', 'descripcionprueba2'),
-(33, '50', '2019-09-01', 12, 3, 71, 'plumones', 'plumones 10 colores'),
-(34, '20', '2019-09-04', 2, 4, 72, 'borrador', 'borrador de nata'),
-(35, '50', '2019-09-04', 2, 5, 73, 'cuadernos cosidos', 'cuadriculado 100 hojas');
 
 -- --------------------------------------------------------
 
@@ -131,13 +131,16 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`idproductos`, `nombre`, `precio`, `cantidad`, `descripcion`, `fecha`, `usuarios_id`, `proveedores_idproveedor`) VALUES
-(1, 'borrador', 500, 5, 'borrador nata pequeño', '2019-09-04', 2, 3),
-(13, 'resma', 2500, 10, 'resma de papel de 500 hojas ', '2019-08-25', 2, 3),
+(1, 'borrador', 500, 3, 'borrador nata pequeño', '2019-09-04', 2, 3),
+(13, 'resma', 2500, 6, 'resma de papel de 500 hojas ', '2019-08-25', 2, 3),
 (19, 'plumones', 1000, 50, 'plumones varios colores', '2019-09-01', 2, 3),
+(20, 'lapiz', 1500, 19, 'rojo', '2020-02-15', 2, 3),
 (22, 'cuadernos cosidos', 1100, 50, 'cuadriculado 100 hojas', '2019-09-04', 2, 5),
-(23, 'grapadora', 2000, 10, 'grapadora mediana', '2019-09-04', 2, 3),
-(24, 'cuaderno', 1500, 20, 'rayado 100 hojas', '2019-09-04', 2, 3),
-(25, 'cuaderno', 1500, 15, 'ferrocarril 100 hojas', '2019-09-04', 2, 3);
+(24, 'lapuz', 1500, 20, 'rayado 100 hojas', '2020-02-15', 2, 3),
+(26, 'cartulina', 800, 50, 'negra', '2020-02-15', 2, 3),
+(30, 'borrador', 500, 10, 'nata', '2020-06-18', 2, 4),
+(31, 'borrador', 500, 10, 'nata', '2020-06-18', 2, 4),
+(32, 'boligrafo', 1500, 10, 'boligrafo negro', '2020-06-18', 2, 4);
 
 -- --------------------------------------------------------
 
@@ -160,9 +163,11 @@ CREATE TABLE `proveedores` (
 --
 
 INSERT INTO `proveedores` (`idproveedor`, `Nit_proveedor`, `nombre_proveedor`, `tlf_proveedor`, `direc_proveedor`, `email_proveedor`, `nom_contacto`) VALUES
-(3, '123', 'norma', 'telefono telefonillo', 'direccion', 'prov@prov.com', 'contacto'),
+(3, '378-2', 'papaleria mundial', '2023019', 'carrera 7 # 3- 89', 'prov@prov.com', 'juan caballero'),
 (4, '123456', 'faber castell', '12345678', 'calle 123456', 'faber@castell', 'magda linares'),
-(5, '5464654', 'escribe', '26226', 'ascclajl ', 'scribe@scribe', 'Oscar');
+(5, '5464654', 'Utencilios a clase escribe', '2622639', 'calle de la abuela sur', 'scribe@scribe', 'chamarro aguila'),
+(7, '125897-23', 'Papeleria Alemana', '3115489914', 'AVE. caracas norte', 'papeleria@gmail.com', 'Marcela Torrez'),
+(10, '93150405-9', 'Cuadernos castillo castillo ', '6214578', 'autopista maría 19 -20', 'parrilla@12gmail.com', 'policarpa mandon');
 
 -- --------------------------------------------------------
 
@@ -209,7 +214,10 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nombre`, `cedula`, `cargo`, `usuario`, `password`, `password2`, `pregunta`, `respuesta`, `fecha_ingreso`, `rol_idrol`) VALUES
 (2, 'carlos padilla', '123', 'admin', 'carlos', '123', '123', 'NOMBRE DE MASCOTA', 'perro', '2019-07-10', 1),
-(12, 'pepa gonzalez', '2', 'empleada', 'pepa1', '123', '123', 'NOMBRE DE MASCOTA', 'cocky', '2019-09-01', 2);
+(12, 'pepa gonzalez', '2', 'empleada', 'pepa1', '123', '123', 'NOMBRE DE MASCOTA', 'cocky', '2019-09-01', 2),
+(13, 'anderson', '123456789', 'aprendiz', 'andersonsena', '12345', '12345', 'NOMBRE DE LA MADRE', 'matilde', '2020-06-18', 1),
+(14, 'yulivan', '1234567890', 'maestro', 'yulivan30', '12345', '12345', '0', '', '2020-06-18', 1),
+(15, 'BRAYAN', '91062112569', 'APRENDIZ', 'BRAYAN97', '12345', '12345', '0', '', '2020-06-18', 2);
 
 -- --------------------------------------------------------
 
@@ -233,10 +241,11 @@ CREATE TABLE `ventas` (
 --
 
 INSERT INTO `ventas` (`idventas`, `cantidad`, `fecha`, `venta_producto`, `venta_precio`, `venta_descripcion`, `usuarios_id`, `clientes_idclientes`) VALUES
-(7, 10, '2019-09-04', 'cuadernos cosidos', 1500, '', 2, 1),
-(8, 5, '2019-09-04', 'grapadora', 2000, 'grapadora mediana 100 ganchos', 2, 1),
-(9, 10, '2019-09-04', 'borrador', 500, 'borrador nata grueso', 2, 1),
-(10, 15, '2019-09-04', 'borrador', 500, 'borrador nata grueso', 2, 2);
+(11, 1, '2020-03-24', 'grapadora', 8000, 'negra', 2, 12),
+(12, 4, '2020-03-24', 'resma', 2500, '500 hojas', 2, 13),
+(13, 1, '2020-05-05', 'borrador', 500, 'miga de pan', 2, 13),
+(14, 1, '2020-06-12', 'borrador', 500, 'nata', 2, 15),
+(15, 10, '2020-06-18', 'boligrafo', 1500, 'boligrafo negro', 2, 15);
 
 --
 -- Índices para tablas volcadas
@@ -307,43 +316,43 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idclientes` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla clientes', AUTO_INCREMENT=3;
+  MODIFY `idclientes` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla clientes', AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `orden_compras`
 --
 ALTER TABLE `orden_compras`
-  MODIFY `id_orden_compras` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la orden de compras de la tabla orden compras', AUTO_INCREMENT=74;
+  MODIFY `id_orden_compras` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la orden de compras de la tabla orden compras', AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `idpedido` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla pedidos ', AUTO_INCREMENT=36;
+  MODIFY `idpedido` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla pedidos ', AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `idproductos` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla productos', AUTO_INCREMENT=26;
+  MODIFY `idproductos` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla productos', AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `idproveedor` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla proveedor', AUTO_INCREMENT=6;
+  MODIFY `idproveedor` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla proveedor', AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla usuarios', AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla usuarios', AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `idventas` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla ventas', AUTO_INCREMENT=11;
+  MODIFY `idventas` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla ventas', AUTO_INCREMENT=16;
 
 --
 -- Restricciones para tablas volcadas

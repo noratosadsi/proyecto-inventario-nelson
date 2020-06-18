@@ -62,10 +62,12 @@
                          	  	  
                          	  	  <thead>
                          	  	  	<tr>
-                         	  	  		<th>Código</th>
+                         	  	  		<!--<th>Código</th>-->
                          	  	  		<th>Producto</th>
                          	  	  		<th>Descripción</th>
                          	  	  		<th>Cantidad</th>
+										<th>Precio Unidad</th>
+										<th>Precio total</th>	
                          	  	  		<th>Fecha</th>
                          	  	  		<th>Nit-proveedor</th>
                          	  	  		<th>Acciones</th>
@@ -74,17 +76,22 @@
 
                          	  	  <tbody>
                          	  	  	<?php for($i=0;$i<sizeof($datos);$i++) {?>
+
                          	  	  	  <tr>
-                         	  	  	  	<td><?php echo $datos[$i]["idpedido"];?></td>
+                         	  	  	  	<!--<td><?php echo $datos[$i]["idpedido"];?></td>-->
                          	  	  	  	<td><?php echo $datos[$i]["producto_pedido"];?></td>
                          	  	  	  	<td><?php echo $datos[$i]["descripcion_pedido"];?></td>
                          	  	  	  	<td><?php echo $datos[$i]["cantidad_pedido"];?></td>
-                         	  	  	  	<td><?php echo Conectar::invierte_fecha($datos[$i]["fecha_pedido"]);?></td>
+										<td><?php echo $datos[$i]["precio_orden"]?></td>
+										<?php //calcular el precio unidad con el precio total y la cantidad del pedido $precio ?>
+										<td><?php echo $precio=$datos[$i]["precio_orden"]*$datos[$i]["cantidad_pedido"]; ?></td>
+		                	  	  	  	<td><?php echo Conectar::invierte_fecha($datos[$i]["fecha_pedido"]);?></td>
                          	  	  	  	<td><?php echo $datos[$i]["Nit_proveedor"];?></td>
                          	  	  	  	<td><a class="btn btn-success" href="<?php echo Conectar::ruta()?>editar_pedido.php?id_pedido=<?php echo $datos[$i]["idpedido"];?>"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar</a> <a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_pedido.php?id_pedido=<?php echo $datos[$i]["idpedido"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></td>
                          	  	  	  </tr>
 
                          	  	  	  <?php }?>
+
                          	  	  </tbody>
 
                          	  </table>

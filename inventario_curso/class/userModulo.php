@@ -61,7 +61,7 @@
         $conectar=parent::conexion();
         parent::set_names();
 
-        if(empty($_POST["cedula"]) or empty($_POST["nombre"]) or empty($_POST["cargo"]) or empty($_POST["usuario"]) or empty($_POST["password"]) or empty($_POST["password2"]) or empty($_POST["pregunta"]) or empty($_POST["respuesta"]) or empty($_POST["nivel"])){
+        if(empty($_POST["cedula"]) or empty($_POST["nombre"]) or empty($_POST["cargo"]) or empty($_POST["usuario"]) or empty($_POST["password"]) or empty($_POST["password2"]) /*or empty($_POST["pregunta"]) or empty($_POST["respuesta"])*/ or empty($_POST["nivel"])){
            
            header("Location:".Conectar::ruta()."agregar_usuario.php?m=1");
            exit();
@@ -110,7 +110,7 @@
         $conectar=parent::conexion();
         parent::set_names();
 
-          if(empty($_POST["cedula"]) or empty($_POST["nombre"]) or empty($_POST["cargo"]) or empty($_POST["usuario"]) or empty($_POST["password"]) or empty($_POST["password2"]) or empty($_POST["pregunta"]) or empty($_POST["respuesta"]) or empty($_POST["nivel"])){
+          if(empty($_POST["cedula"]) or empty($_POST["nombre"]) or empty($_POST["cargo"]) or empty($_POST["usuario"]) or empty($_POST["password"]) or empty($_POST["password2"]) or /*empty($_POST["pregunta"]) or empty($_POST["respuesta"]) or */empty($_POST["nivel"])){
            
            header("Location:".Conectar::ruta()."editar_usuario.php?id_usuario=".$_POST["id"]."&m=1");
            exit();

@@ -118,7 +118,7 @@
 							</div>
 							</div>
 
-							 <div class="form-group">
+							<!--<div class="form-group">
 							<label for="" class="col-sm-2 control-label">Pregunta Secreta</label>
 							<div class="col-sm-6">
 								<select name="pregunta" class="form-control" id="">
@@ -132,14 +132,14 @@
 								</select>
 							</div>
 							</div>
-
+					   		
 							 <div class="form-group">
 							<label for="" class="col-sm-2 control-label">Respuesta Secreta</label>
 							<div class="col-sm-6">
 								<input type="text" name="respuesta" class="form-control" placeholder="ingrese respuesta">
 							</div>
 							</div>
-
+					   		-->
 							 <div class="form-group">
 							<label for="" class="col-sm-2 control-label">Nivel Acceso</label>
 							<div class="col-sm-6">

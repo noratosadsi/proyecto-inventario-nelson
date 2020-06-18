@@ -75,7 +75,7 @@ require_once("class/config.php");
 					     	  	<td><?php echo $datos[$i]["usuario"];?></td>
 					     	  	<td><?php if ($datos[$i]["rol_idrol"]==1){echo "Administrador";} else {echo "usuario";}?></td>
 					     	  	<td><?php echo Conectar::invierte_fecha($datos[$i]["fecha_ingreso"])?></td>
-					     	    <td><a class="btn btn-success" href="<?php echo Conectar::ruta();?>editar_usuario.php?id_usuario=<?php echo $datos[$i]["id"];?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"> </span> Editar</a> <a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_usuario.php?id_usuario=<?php echo $datos[$i]["id"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"> </span> Eliminar</a></td>
+					     	    <td><a class="btn btn-success" href="<?php echo Conectar::ruta();?>editar_usuario.php?id_usuario=<?php echo $datos[$i]["id"];?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"> </span> Editar</a> <!--<a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_usuario.php?id_usuario=<?php echo $datos[$i]["id"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"> </span> Eliminar</a>--></td>
 					     	  </tr>
 					     	  <?php }?>
 					     	  </tbody>

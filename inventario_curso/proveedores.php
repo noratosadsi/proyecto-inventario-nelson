@@ -92,7 +92,7 @@
                                 		<td><a class="btn btn-success" href="<?php echo Conectar::ruta();?>editar_proveedor.php?id_proveedor=<?php echo $datos[$i]["idproveedor"];?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar</a>
 											
 											
-											<a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_proveedor.php?id_proveedor=<?php echo $datos[$i]["idproveedor"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a>
+											<!--<a class="btn btn-danger" href="<?php echo Conectar::ruta();?>eliminar_proveedor.php?id_proveedor=<?php echo $datos[$i]["idproveedor"];?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminarlo</a>-->
 
 										<?php }?>
 																					
