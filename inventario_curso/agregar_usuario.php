@@ -42,7 +42,7 @@
 						<ol class="breadcrumb">
 						  <li><a href="<?php echo Conectar::ruta();?>home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Principal</a></li>
 						  <li><a href="<?php echo Conectar::ruta();?>usuarios.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuarios</a></li>
-						  <li><a href="<?php echo Conectar::ruta();?>agregar_usuario.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Agregar Usuario</a></li>
+						  <li><a href="<?php echo Conectar::ruta();?>agregar_usuario.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Nuevo Usuario</a></li>
 						</ol>
 					</div>
 
