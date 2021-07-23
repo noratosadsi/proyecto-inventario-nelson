@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-06-2020 a las 01:41:43
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.2
+-- Tiempo de generación: 23-07-2021 a las 04:40:57
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -202,8 +202,8 @@ CREATE TABLE `usuarios` (
   `usuario` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'usario o alias de la tabla usuarios',
   `password` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'contraseña 1 para la comprobacion de la tabla usuarios',
   `password2` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'contraseña 2 de la tabla usuarios',
-  `pregunta` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'pregunta de seguridad para recuperar el usuario, de la tabla usuarios',
-  `respuesta` varchar(200) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'respuesta a la pregunta seguridad para recuperar usuario, de la tabla usuarios',
+  `pregunta` varchar(200) COLLATE utf8_spanish2_ci DEFAULT NULL COMMENT 'pregunta de seguridad para recuperar el usuario, de la tabla usuarios',
+  `respuesta` varchar(200) COLLATE utf8_spanish2_ci DEFAULT NULL COMMENT 'respuesta a la pregunta seguridad para recuperar usuario, de la tabla usuarios',
   `fecha_ingreso` date NOT NULL COMMENT 'fecha ingreso de la tabla usuarios',
   `rol_idrol` int(11) NOT NULL COMMENT 'id rol de la tabla rol, de la tabla usuarios\n'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -217,7 +217,11 @@ INSERT INTO `usuarios` (`id`, `nombre`, `cedula`, `cargo`, `usuario`, `password`
 (12, 'pepa gonzalez', '2', 'empleada', 'pepa1', '123', '123', 'NOMBRE DE MASCOTA', 'cocky', '2019-09-01', 2),
 (13, 'anderson', '123456789', 'aprendiz', 'andersonsena', '12345', '12345', 'NOMBRE DE LA MADRE', 'matilde', '2020-06-18', 1),
 (14, 'yulivan', '1234567890', 'maestro', 'yulivan30', '12345', '12345', '0', '', '2020-06-18', 1),
-(15, 'BRAYAN', '91062112569', 'APRENDIZ', 'BRAYAN97', '12345', '12345', '0', '', '2020-06-18', 2);
+(15, 'BRAYAN vargas', '9106211256', 'APRENDIZ', 'BRAYAN97', '12345', '12345', '', '', '2020-06-18', 1),
+(16, 'HDFG', '456146', 'FGHFDG', 'FDGH', '123', '123', NULL, NULL, '2021-07-22', 2),
+(17, 'HDFG', '456146', 'FGHFDG', 'FDGH', '123', '123', NULL, NULL, '2021-07-22', 2),
+(18, 'SDF', '1516', 'DSG', 'DSF', '123', '123', NULL, NULL, '2021-07-22', 2),
+(19, 'CECILIA', '123456', 'APRENDIZ ', 'CECILIA', '123', '123', NULL, NULL, '2021-07-22', 2);
 
 -- --------------------------------------------------------
 
@@ -346,7 +350,7 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla usuarios', AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id de la tabla usuarios', AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`

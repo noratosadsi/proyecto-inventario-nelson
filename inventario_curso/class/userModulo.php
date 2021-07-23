@@ -55,7 +55,7 @@
 
   	  	return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
   	  }
-
+///////////////////AGREGAR USUARIO REVISAR POSIBLE FALLA
       public function agregar_usuario(){
 
         $conectar=parent::conexion();
@@ -88,6 +88,8 @@
         header("Location:".Conectar::ruta()."agregar_usuario.php?m=2");
         exit();
       }
+      
+//////////////////////////////////////////////////////AQUÍ TERMINA LA FUNCIÓN PARA AGREGAR USUARIOS
 
       public function get_usuario_por_id($id_usuario){
 
