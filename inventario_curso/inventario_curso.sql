@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-07-2021 a las 04:40:57
+-- Tiempo de generación: 23-07-2021 a las 05:47:26
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.3.1
 
@@ -105,8 +105,8 @@ CREATE TABLE `pedidos` (
   `usuarios_id` int(11) NOT NULL COMMENT 'id de la tabla usuarios',
   `proveedores_idproveedor` int(11) NOT NULL COMMENT 'id del proveedor de la tabla proveedores',
   `orden_compras_id_orden_compras` int(11) NOT NULL COMMENT 'id del orden de compras de la tabla orden compras',
-  `producto_pedido` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
-  `descripcion_pedido` varchar(45) COLLATE utf8_spanish2_ci NOT NULL
+  `producto_pedido` varchar(45) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'El pedido del producto',
+  `descripcion_pedido` varchar(45) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'Descripción del pedido'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -123,7 +123,7 @@ CREATE TABLE `productos` (
   `descripcion` varchar(45) NOT NULL COMMENT 'descripcion del producto',
   `fecha` date NOT NULL COMMENT 'fecha del producto',
   `usuarios_id` int(11) NOT NULL COMMENT 'id de la tabla usuarios',
-  `proveedores_idproveedor` int(11) NOT NULL
+  `proveedores_idproveedor` int(11) NOT NULL COMMENT 'Id del proveedor de la tabla proveedores'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -233,9 +233,9 @@ CREATE TABLE `ventas` (
   `idventas` int(11) NOT NULL COMMENT 'codigo de la tabla ventas',
   `cantidad` int(11) NOT NULL COMMENT 'cantidades de la tabla ventas',
   `fecha` date NOT NULL COMMENT 'fecha de la tabla ventas',
-  `venta_producto` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
-  `venta_precio` int(11) NOT NULL,
-  `venta_descripcion` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
+  `venta_producto` varchar(45) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'Nombre del producto que se vende',
+  `venta_precio` int(11) NOT NULL COMMENT 'Precio de la venta del producto',
+  `venta_descripcion` varchar(100) COLLATE utf8_spanish2_ci NOT NULL COMMENT 'Descripción del producto que se vende',
   `usuarios_id` int(11) NOT NULL COMMENT 'id de la tabla usuarios',
   `clientes_idclientes` int(11) NOT NULL COMMENT 'id de la tabla clientes'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -332,7 +332,7 @@ ALTER TABLE `orden_compras`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `idpedido` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla pedidos ', AUTO_INCREMENT=44;
+  MODIFY `idpedido` int(11) NOT NULL AUTO_INCREMENT COMMENT 'codigo de la tabla pedidos ';
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
